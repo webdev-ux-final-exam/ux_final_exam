@@ -1,0 +1,27 @@
+@import '_variables.css';
+
+* {
+    margin: 0;
+    padding: 0;    
+}
+nav {
+        ul {
+            display: flex;
+            margin: 0;
+            li {
+                display: inline-block;
+                list-style-type: none;
+                text-align: center;
+            }
+        }
+}
+
+
+
+body {
+    font-family: var(--fontMain);
+}
+
+h1, h2 {
+    font-family: var(--fontHeader)
+}
