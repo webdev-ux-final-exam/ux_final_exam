@@ -1,63 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/scripts.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Modules behave the same way as classic scripts with defer, so defer is not needed -->
+  <!-- script.js is a module, because we import ApiHandler.js from it -->
+  <script src="js/script.js" type="module"></script>
 </head>
 
 <body>
+  <header>
+    <section>
+      <h1>Logo/name</h1>
+      <nav>
+        <ul>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+
+  <section>
+    <div>
+      <h2>Header</h2>
+      <p>Lorem ipsum</p>
+      <button>Button</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Features</h2>
+    <section>
+      <article>
+        <h3>Feature</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officia, ad saepe, minima debitis nam
+          omnis a facere sapiente consequuntur blanditiis fugiat libero nostrum maxime, id assumenda nobis
+          error magni.</p>
+      </article>
+      <article>
+        <h3>Feature</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officia, ad saepe, minima debitis nam
+          omnis a facere sapiente consequuntur blanditiis fugiat libero nostrum maxime, id assumenda nobis
+          error magni.</p>
+      </article>
+      <article>
+        <h3>Feature</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officia, ad saepe, minima debitis nam
+          omnis a facere sapiente consequuntur blanditiis fugiat libero nostrum maxime, id assumenda nobis
+          error magni.</p>
+      </article>
+    </section>
+  </section>
+
+  <section>
     <header>
-        <section>
-            <h1>Logo/name</h1>
-            <nav>
-                <ul>
-                    <li><a href="">Link</a></li>
-                    <li><a href="">Link</a></li>
-                    <li><a href="">Link</a></li>
-                </ul>
-            </nav>
-        </section>
+      <h2>Random Books</h2>
     </header>
+    <div id="random-book-list">
 
+    </div>
+  </section>
+
+  <footer>
     <section>
-        <div>
-                <h2>Header</h2>
-                <p>Lorem ipsum</p>
-                <button>Button</button>
-        </div>
+      <p>&copy; 2024 UX group ?</p>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </section>
+  </footer>
 
-    <section>
-            <h2>Features</h2>
-            <section>
-                <article>
-                    <h3>Feature</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officia, ad saepe, minima debitis nam omnis a facere sapiente consequuntur blanditiis fugiat libero nostrum maxime, id assumenda nobis error magni.</p>
-                </article>
-                <article>
-                    <h3>Feature</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officia, ad saepe, minima debitis nam omnis a facere sapiente consequuntur blanditiis fugiat libero nostrum maxime, id assumenda nobis error magni.</p>
-                </article>
-                <article>
-                    <h3>Feature</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officia, ad saepe, minima debitis nam omnis a facere sapiente consequuntur blanditiis fugiat libero nostrum maxime, id assumenda nobis error magni.</p>
-                </article>
-            </section>
-    </section>
-
-    <footer>
-        <section>
-            <p>&copy; 2024 UX group ?</p>
-            <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </section>
-    </footer>
-
+  <template id="book-template">
+    <article>
+      <h3></h3>
+      <p class="book-author"></p>
+      <p class="book-publishing"></p>
+      <a href="" class="book-link">
+        <button type="button">Loan book</button>
+      </a>
+    </article>
+  </template>
 </body>
+
 </html>
