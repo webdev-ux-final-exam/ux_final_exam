@@ -1,0 +1,91 @@
+@import "_variables.css";
+@import "_reset.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+section:not(.hero) {
+  padding: 2rem 1rem;
+  background-color: var(--secondary-bg);
+
+  > div {
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+  }
+}
+
+header:has(nav) {
+  position: sticky;
+  top: 0;
+
+  height: 60px;
+  background-color: var(--secondary-bg);
+  padding: 0 1rem;
+}
+
+header nav {
+  max-width: var(--max-screen-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+
+  ul {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+body {
+  font-family: var(--fontMain);
+  background-color: var(--primary-bg);
+}
+
+h1,
+h2 {
+  font-family: var(--fontHeader);
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--text-color);
+}
+
+p {
+  color: var(--text-color);
+  line-height: normal;
+}
+
+.hero {
+  height: calc(100vh - 60px); /* Fallback for browsers that don't support dvh */
+  height: calc(100dvh - 60px);
+  max-width: var(--max-screen-width);
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+
+  > img {
+    height: 80%;
+    margin-left: -6rem;
+  }
+
+  > div {
+    h1 {
+      white-space: nowrap;
+    }
+
+    max-width: var(--max-width-content);
+    flex-grow: 1;
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
