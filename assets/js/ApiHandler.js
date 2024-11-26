@@ -26,9 +26,16 @@ export default class ApiHandler {
     try {
       const response = await fetch(url, options);
       if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status}`);
+        return {
+          success: false,
+          statusCode: response.status,
+        };
       }
-      return await response.json();
+      const json = await response.json();
+      return {
+        success: true,
+        data: json,
+      };
     } catch (error) {
       console.error(`Error in ${method} ${url}:`, error);
       throw error;
