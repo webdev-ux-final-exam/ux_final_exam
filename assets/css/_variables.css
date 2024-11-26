@@ -6,9 +6,13 @@
 
   --primary-bg: #a8bcaa;
   --secondary-bg: #f7f6e7;
+  --tertiary-bg: #efefef;
   --text-color: #333533;
   --accent-color: #ffc857;
   --secondary-accent: #6b705c;
+  --error-color-dark: #e74c3c;
+  --error-color-light: #ffe0de;
+  --succes-color: #2ecc71;
 
   --max-screen-width: 1200px;
   --max-width-content: 800px;

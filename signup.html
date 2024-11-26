@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eLib | Sign up</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/signup.js" type="module"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <p>eLib</p>
+        <ul>
+          <li><a href="index.html" aria-label="Home">Home</a></li>
+          <li><a href="signup.html" aria-label="Sign Up">Sign Up</a></li>
+          <li><a href="login.html" aria-label="Log In">Log In</a></li>
+          <li><a href="about.html" aria-label="About">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <form method="POST" id="signupForm" novalidate>
+        <legend>Sign up</legend>
+        <div class="formfieldPair">
+          <div>
+            <label for="first_name">First name:</label>
+            <input
+              id="first_name"
+              type="text"
+              name="first_name"
+              placeholder="John"
+            />
+          </div>
+          <div>
+            <label for="last_name">Last name:</label>
+            <input
+              id="last_name"
+              type="text"
+              name="last_name"
+              placeholder="Doe"
+            />
+          </div>
+        </div>
+        <div>
+          <label for="email">E-mail:</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="john@doe.com"
+          />
+        </div>
+        <div>
+          <label for="address">Address:</label>
+          <input
+            id="address"
+            type="text"
+            name="address"
+            placeholder="123 Main Street, 1234 Anytown"
+          />
+        </div>
+        <div class="formfieldPair">
+          <div>
+            <label for="phone_number">Phone number:</label>
+            <input
+              id="phone_number"
+              type="tel"
+              name="phone_number"
+              placeholder="12 34 56 78"
+            />
+          </div>
+          <div>
+            <label for="birth_date">Birth date:</label>
+            <input
+              id="birth_date"
+              type="date"
+              name="birth_date"
+              placeholder="Choose date"
+            />
+          </div>
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input id="password" type="password" name="password" />
+        </div>
+        <div>
+          <label for="confirm_password">Confirm Password:</label>
+          <input
+            id="confirm_password"
+            type="password"
+            name="confirm_password"
+          />
+        </div>
+        <button type="submit">Sign up</button>
+      </form>
+      <div id="toast-container"></div>
+    </main>
+
+    <footer>
+      <section>
+        <p>&copy; 2024 UX group ?</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </section>
+    </footer>
+  </body>
+</html>
