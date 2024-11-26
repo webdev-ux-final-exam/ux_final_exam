@@ -15,6 +15,7 @@ loginForm.addEventListener("submit", async (e) => {
   submitButton.disabled = true;
   const loginResult = await api.loginUser(data.email, data.password);
   if (loginResult.success) {
+    localStorage.setItem("userId", loginResult.data.user_id);
     toast("Login successful, navigating you to the frontpage ..", "success");
     setTimeout(() => (window.location.href = "/index.html"), 2000);
   } else {
