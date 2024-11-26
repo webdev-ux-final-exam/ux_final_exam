@@ -14,6 +14,9 @@
   --error-color-light: #ffe0de;
   --succes-color: #2ecc71;
 
+  --primary-button: #fe6759;
+  --secondary-button: #333533;
+
   --max-screen-width: 1200px;
   --max-width-content: 800px;
 }
