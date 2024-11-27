@@ -98,7 +98,8 @@ header nav {
   background-color: var(--succes-color);
 }
 
-#signupForm {
+#signupForm,
+#loginForm {
   background-color: white;
   width: 90%;
   max-width: 500px;
@@ -114,6 +115,12 @@ header nav {
   }
   button {
     margin-top: 1rem;
+  }
+
+  hr {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid var(--primary-bg);
   }
 }
 

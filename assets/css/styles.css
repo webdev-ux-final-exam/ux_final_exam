@@ -11,6 +11,15 @@
 body {
   font-family: var(--fontMain);
   background-color: var(--primary-bg);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+main {
+  flex-grow: 1;
 }
 
 h1,
@@ -65,4 +74,16 @@ button {
   background-color: #fe6759;
   color: white;
   cursor: pointer;
+
+  transition-property: filter;
+  transition-duration: 0.3s;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
 }
