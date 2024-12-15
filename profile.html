@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booklet | Edit profile</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/js/profile.js" type="module"></script>
+  <script src="assets/js/header.js" type="module"></script>
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a class="logo" id="logo-btn" href="index.html" aria-label="Home">Booklet</a>
+      <ul>
+        <li><a href="about.html" aria-label="About">About</a></li>
+        <li><a id="auth-btn" aria-label="Log In">Log In</a></li>
+        <li><a id="signup-btn" class="btn-secondary" href="signup.html" aria-label="Sign Up">Create Account</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form method="POST" id="editProfileForm" novalidate>
+      <legend>Edit profile</legend>
+      <div class="formfieldPair">
+        <div>
+          <label for="first_name">First name:</label>
+          <input id="first_name" type="text" name="first_name" placeholder="John" pattern="[A-Za-z]{2,50}"
+            title="First name must be between 2 and 50 letters" />
+        </div>
+        <div>
+          <label for="last_name">Last name:</label>
+          <input id="last_name" type="text" name="last_name" placeholder="Doe" pattern="[A-Za-z]{2,50}"
+            title="Last name must be between 2 and 50 letters" />
+        </div>
+      </div>
+      <div>
+        <label for="email">E-mail:</label>
+        <input id="email" type="email" name="email" placeholder="john@doe.com"
+          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Must be a valid e-mail address" required />
+      </div>
+      <div>
+        <label for="address">Address:</label>
+        <input id="address" type="text" name="address" placeholder="123 Main Street, 1234 Anytown" pattern=".{5,}"
+          title="Address must be minimum 5 characters" required />
+      </div>
+      <div class="formfieldPair">
+        <div>
+          <label for="phone_number">Phone number:</label>
+          <input id="phone_number" type="tel" name="phone_number" placeholder="12 34 56 78" pattern="\d{8,10}"
+            title="Phone number must be between 8 and 10 digits" required />
+        </div>
+        <div>
+          <label for="birth_date">Birth date:</label>
+          <input id="birth_date" type="date" name="birth_date" placeholder="Choose date" required />
+        </div>
+      </div>
+      <div class="justify-between">
+        <a href="/homepage.html">
+          <button class="btn-secondary" type="submit">Go back</button>
+        </a>
+        <button class="btn-primary" type="submit">Save edits</button>
+      </div>
+    </form>
+    <div id="toast-container"></div>
+  </main>
+
+  <footer>
+    <div>
+      <p class="logo">Booklet</p>
+      <div>
+        <p class="footer-title">Information</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <p class="footer-copyright">&copy; 2024 UX group</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
