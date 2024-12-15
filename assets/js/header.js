@@ -3,29 +3,34 @@ export const logout = () => {
   localStorage.removeItem("userId");
   localStorage.removeItem("email");
 
-  // Redirect to the homepage or login page after logout
   setTimeout(() => {
-    window.location.href = "/index.html"; // Redirect after logout
-    updateAuthButton(); // Update the button after logout
-  }, 2000);
+    window.location.href = "/index.html"; 
+    updateAuthButton(); 
+  }, 1000);
 };
 
+// check if user is logged in
 const isUserLoggedIn = () => {
   return localStorage.getItem("userId") !== null;
 };
 
-const updateAuthButton = () => {
-  const authButton = document.getElementById("authButton");
+// change header based on whether or not the user is logged in 
+const updateHeader = () => {
+  const authButton = document.getElementById("auth-btn");
+  const signupButton = document.getElementById("signup-btn")
+  const logoButton = document.getElementById("logo-btn")
 
   if (isUserLoggedIn()) {
     authButton.textContent = "Log Out";
-    authButton.onclick = logout; // Logout action
+    authButton.ariaLabel = "Log Out"
+    authButton.onclick = logout;
+    signupButton.style.display = "none"
+    logoButton.href = "/homepage.html"
+
   } else {
     authButton.textContent = "Log In";
-    authButton.onclick = () => {
-      window.location.href = "/login.html"; // Redirect to login page
-    };
+    authButton.href = "/login.html"; 
   }
 };
 
-updateAuthButton();
+updateHeader();

@@ -1,6 +1,13 @@
 import { toast } from "./toast.js";
 import ApiHandler from "./ApiHandler.js";
 
+// check if user is logged in
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem("userId")) {
+    window.location.href = "/homepage.html";
+  }
+});
+
 const api = new ApiHandler("https://py-library-api-v2.server.steffen.codes");
 
 const signupForm = document.getElementById("signupForm");
