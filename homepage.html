@@ -6,11 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>eLib</title>
   <link rel="stylesheet" href="assets/css/styles.css">
-
-  <!-- Modules behave the same way as classic scripts with defer, so defer is not needed -->
-  <!-- script.js is a module, because we import ApiHandler.js from it -->
   <script src="assets/js/header.js" type="module"></script>
-
+  <script src="assets/js/homepage.js" type="module"></script>
 </head>
 
 <body>
@@ -30,11 +27,7 @@
     <section class="hero" aria-labelledby="welcome-heading">
       <img src="assets/images/online-library2.svg" alt="Online Library illustration">
       <div>
-        <h1 id="welcome-heading">Welcome to the Online Library</h1>
-        <p>
-          Discover a world of e-books at your fingertips. Sign up or log in to access exclusive features like loaning
-          books and managing your account.
-        </p>
+        <h1 id="welcome-heading">Welcome back <span id="username-display"></span></h1>
       </div>
     </section>
 
@@ -78,6 +71,7 @@
 
       </div>
     </section>
+    <div id="toast-container"></div>
   </main>
 
   <footer>

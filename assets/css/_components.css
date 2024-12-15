@@ -124,6 +124,11 @@ header nav {
   }
 }
 
+#username-display {
+  display: none;
+  text-transform: capitalize;
+}
+
 @media (min-width: 640px) {
   #signupForm {
     padding: 3rem;

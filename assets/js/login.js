@@ -15,10 +15,13 @@ loginForm.addEventListener("submit", async (e) => {
   submitButton.disabled = true;
   const loginResult = await api.loginUser(data.email.trim(), data.password);
   if (loginResult.success) {
-    localStorage.setItem("userId", data.email.trim());
-    localStorage.setItem("email", loginResult.data.user_id);
+    localStorage.setItem("userId", loginResult.data.user_id);
+    localStorage.setItem("email", data.email.trim());
     toast("Login successful, navigating you to the frontpage ..", "success");
-    setTimeout(() => (window.location.href = "/index.html"), 2000);
+    setTimeout(() => {
+      window.location.href = "/homepage.html";
+      updateAuthButton(); // Update the button after login
+    }, 2000);
   } else {
     submitButton.disabled = false;
     switch (loginResult.statusCode) {
