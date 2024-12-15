@@ -1,6 +1,13 @@
 import { toast } from "./toast.js";
 import ApiHandler from "./ApiHandler.js";
 
+// check if user is logged in
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem("userId")) {
+    window.location.href = "/homepage.html";
+  }
+});
+
 const api = new ApiHandler("https://py-library-api-v2.server.steffen.codes");
 
 const loginForm = document.getElementById("loginForm");
@@ -15,10 +22,13 @@ loginForm.addEventListener("submit", async (e) => {
   submitButton.disabled = true;
   const loginResult = await api.loginUser(data.email.trim(), data.password);
   if (loginResult.success) {
-    localStorage.setItem("userId", data.email.trim());
-    localStorage.setItem("email", loginResult.data.user_id);
+    localStorage.setItem("userId", loginResult.data.user_id);
+    localStorage.setItem("email", data.email.trim());
     toast("Login successful, navigating you to the frontpage ..", "success");
-    setTimeout(() => (window.location.href = "/index.html"), 2000);
+    setTimeout(() => {
+      window.location.href = "/homepage.html";
+      updateHeader(); 
+    }, 2000);
   } else {
     submitButton.disabled = false;
     switch (loginResult.statusCode) {

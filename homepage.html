@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Booklet</title>
+  <title>Booklet | Homepage</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/header.js" type="module"></script>
-  <script src="assets/js/get_books.js" type="module"></script>
+  <script src="assets/js/homepage.js" type="module"></script>
 </head>
 
 <body>
@@ -26,19 +26,7 @@
     <section class="hero" aria-labelledby="welcome-heading">
       <img src="assets/images/online-library2.svg" alt="Online Library illustration">
       <div>
-        <h1 id="welcome-heading">Welcome to the Online Library</h1>
-        <p>
-          Discover a world of e-books at your fingertips. Sign up or log in to access exclusive features like loaning
-          books and managing your account.
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <div>
-        <h2>Header</h2>
-        <p>Lorem ipsum</p>
-        <button class="btn-primary">Button</button>
+        <h1 id="welcome-heading">Welcome back <span id="username-display"></span></h1>
       </div>
     </section>
 
@@ -65,42 +53,23 @@
         </article>
       </section>
     </section>
-
-    <section>
-      <header>
-        <h2>Random Books</h2>
-      </header>
-      <div id="random-book-list">
-
-      </div>
-    </section>
+    <div id="toast-container"></div>
   </main>
 
-  <template id="book-template">
-    <article>
-      <h3></h3>
-      <p class="book-author"></p>
-      <p class="book-publishing"></p>
-      <a href="" class="book-link">
-        <button class="btn-primary" type="button">Loan book</button>
-      </a>
-    </article>
-  </template>
-
   <footer>
+    <div>
+      <p class="logo">Booklet</p>
       <div>
-        <p class="logo">Booklet</p>
-        <div>
-          <p class="footer-title">Information</p>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-          <p class="footer-copyright">&copy; 2024 UX group</p>
-        </div>
+        <p class="footer-title">Information</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <p class="footer-copyright">&copy; 2024 UX group</p>
       </div>
-  </footer>
+    </div>
+</footer>
 </body>
 
 </html>
