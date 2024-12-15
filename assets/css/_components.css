@@ -10,12 +10,10 @@ section:not(.hero) {
 }
 
 header:has(nav) {
-  position: sticky;
-  top: 0;
-
   height: 6rem;
   background-color: var(--primary-bg);
   padding: 0 1rem;
+  margin-bottom: 1rem;
 }
 
 header nav {
@@ -103,7 +101,7 @@ header nav {
 }
 
 #signupForm,
-#loginForm, #add-author-frm {
+#loginForm {
   background-color: var(--primary-bg);
   width: 90%;
   max-width: 500px;
@@ -120,13 +118,13 @@ header nav {
   button {
     margin-top: 1rem;
   }
-
   hr {
     margin: 1rem 0;
     border: none;
     border-top: 1px solid var(--tertiary-bg);
   }
 }
+
 
 #username-display {
   display: none;
@@ -184,6 +182,25 @@ header nav {
   }
 }
 
+.pagination-btn {
+  border: none;
+  background-color: transparent;
+  font-family: var(--fontMain);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#pageNumber {
+  padding: 0 1rem;
+
+}
+
+.pagination-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .logo {
   font-family: var(--fontHeader);
   font-weight: 900;
@@ -191,11 +208,101 @@ header nav {
   color: var(--primary-text);
 }
 
+
+
+/* Style the table */
+#authorsTable {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 0.6rem;
+  thead {
+    background-color: var(--secondary-btn);  /* Green background */
+    color: var(--secondary-text);
+  }
+  th {
+    padding: 1.2rem;
+    text-align: center;
+    font-size: 1.1em;
+    width: 50%;
+  }
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1em;
+  }
+}
+
+
+#add-author-frm {
+  width: 100%;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+  legend {
+    font-family: var(--fontHeader);
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+
+.tab-container {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+
+.tab {
+  width: 20%; 
+  height: 30rem;
+  padding: 2rem;
+  background-color: var(--secondary-btn);
+  border-radius: 1rem;
+  h1 {
+    color: var(--secondary-text);
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
+  button {
+    color: var(--secondary-text);
+    font-family: var(--fontMain);
+    font-weight: 200;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+}
+
+.tab button:hover, .tab button.active {
+  text-decoration: underline;
+}
+
+.tabcontent {
+  display: none;
+  width: 80%;
+}
+
+
 footer {
   background-color: var(--secondary-btn);
   color: var(--secondary-text);
   padding-bottom: 2rem;
   padding: 4rem 0 2rem 0;
+  margin-top: 3rem;
   a, .logo {
     color: var(--secondary-text);
   }
@@ -224,35 +331,6 @@ footer {
     opacity: 50%;
   }
 }
-
-
-/* Style the table */
-#authorsTable {
-  width: 50%;
-  border-collapse: collapse;
-  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
-  border-radius: 1rem;
-  overflow: hidden;
-  text-align: center;
-  thead {
-    background-color: var(--secondary-btn);  /* Green background */
-    color: var(--secondary-text);
-  }
-  th {
-    padding: 1.2rem;
-    text-align: center;
-    font-size: 1.1em;
-  }
-  tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
-    font-size: 1em;
-  }
-}
-
 
 
 @media (min-width: 640px) {

@@ -23,34 +23,67 @@
     </nav>
   </header>
 
+
+
+
+
+
   <main>
-    <h1>Admin dashboard</h1>
-    <form id="add-author-frm">
-      <fieldset>
-        <legend>Add new author</legend>
-        <div>
-          <label for="first_name">First name:</label>
-          <input name="first_name" type="text">
+    
+    <div class="tab-container">
+      <div class="tab">
+        <h1>Admin dashboard</h1>
+        <button class="tablinks" id="tabAddBook">Add Book</button>
+        <button class="tablinks" id="tabAddAuthor">Add Author</button>
+        <button class="tablinks" id="tabAddPublisher">Add Publisher</button>
+      </div>
+      
+      <div id="AddBook" class="tabcontent">Add Book content</div>
+
+
+      <div id="AddAuthor" class="tabcontent">
+        <form id="add-author-frm">
+          <fieldset>
+            <legend>Add new author</legend>
+            <div>
+              <label for="first_name">First name:</label>
+              <input name="first_name" type="text">
+            </div>
+            <div>
+              <label for="last_name">Last name:</label>
+              <input name="last_name" type="text">
+            </div>
+            <button class="btn-primary" type="submit">Add</button>
+          </fieldset>
+        </form>
+
+        <h2>All Authors</h2>
+        <div class="pagination-container">
+          <table id="authorsTable">
+            <thead>
+              <tr>
+                <th>Author ID</th>
+                <th>Author Name</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <div id="paginationControls">
+            <button class="pagination-btn" id="prevPage">Prev</button>
+            <span id="pageNumber"></span>
+            <button class="pagination-btn" id="nextPage">Next</button>
+          </div>
         </div>
-        <div>
-          <label for="last_name">Last name:</label>
-          <input name="last_name" type="text">
-        </div>
-        <button class="btn-secondary" type="submit">Add</button>
-      </fieldset>
-    </form>
-    <table id="authorsTable">
-      <thead>
-        <tr>
-          <th>Author ID</th>
-          <th>Author Name</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+      </div>
+
+
+      <div id="AddPublisher" class="tabcontent">Add Publisher content</div>
+    </div>
+  
     <div id="toast-container"></div>
   </main>
+  
 
   <footer>
     <div>
@@ -66,6 +99,41 @@
       </div>
     </div>
 </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const tablinks = document.querySelectorAll(".tablinks");
+    const tabContents = document.querySelectorAll(".tabcontent");
+  
+    // hide all tab content by default
+    tabContents.forEach(content => {
+      content.style.display = "none";
+    });
+  
+    // add event listener to each tab button
+    tablinks.forEach(tab => {
+      tab.addEventListener("click", function() {
+        // hide all content
+        tabContents.forEach(content => {
+          content.style.display = "none";
+        });
+  
+        // remove 'active' class from all buttons
+        tablinks.forEach(button => {
+          button.classList.remove("active");
+        });
+  
+        // Show the content of the clicked tab
+        const tabId = this.id.replace("tab", ""); // remove 'tab' prefix
+        document.getElementById(tabId).style.display = "block";
+  
+        this.classList.add("active");
+      });
+    });
+    document.getElementById("AddBook").style.display = "block";
+    document.getElementById("tabAddBook").classList.add("active");
+  });
+  
+  </script>
 </body>
 
 </html>
