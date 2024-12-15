@@ -3,20 +3,23 @@
 :root {
   --fontMain: "Open Sans", sans-serif;
   --fontHeader: "Playfair Display", serif;
-
-  --primary-bg: #a8bcaa;
-  --secondary-bg: #f7f6e7;
+  
+  --primary-bg: #ffffff;
+  --secondary-bg: #a8bcaa;
   --tertiary-bg: #efefef;
-  --text-color: #333533;
+
+  --primary-text: #101119;
+  --secondary-text: #ffffff;
+
   --accent-color: #ffc857;
   --secondary-accent: #6b705c;
   --error-color-dark: #e74c3c;
   --error-color-light: #ffe0de;
   --succes-color: #2ecc71;
 
-  --primary-button: #fe6759;
-  --secondary-button: #333533;
+  --primary-btn: #fe6759;
+  --secondary-btn: #1f2232;
 
-  --max-screen-width: 1200px;
+  --max-screen-width: 1366px;
   --max-width-content: 800px;
 }

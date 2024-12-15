@@ -11,12 +11,11 @@
   <body>
     <header>
       <nav>
-        <p>eLib</p>
+        <a class="logo" href="index.html" aria-label="Home">Booklet</a>
         <ul>
-          <li><a href="index.html" aria-label="Home">Home</a></li>
-          <li><a href="signup.html" aria-label="Sign Up">Sign Up</a></li>
-          <li><a href="login.html" aria-label="Log In">Log In</a></li>
           <li><a href="about.html" aria-label="About">About</a></li>
+          <li><a href="login.html" aria-label="Log In">Log In</a></li>
+          <li><a class="btn-secondary" href="signup.html" aria-label="Sign Up">Create Account</a></li>
         </ul>
       </nav>
     </header>
@@ -94,20 +93,24 @@
             name="confirm_password"
           />
         </div>
-        <button type="submit">Sign up</button>
+        <button class="btn-primary" type="submit">Sign up</button>
       </form>
       <div id="toast-container"></div>
     </main>
 
     <footer>
-      <section>
-        <p>&copy; 2024 UX group ?</p>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </section>
-    </footer>
+      <div>
+        <p class="logo">Booklet</p>
+        <div>
+          <p class="footer-title">Information</p>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <p class="footer-copyright">&copy; 2024 UX group</p>
+        </div>
+      </div>
+  </footer>
   </body>
 </html>
