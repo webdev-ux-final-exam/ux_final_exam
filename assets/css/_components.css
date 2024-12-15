@@ -103,7 +103,7 @@ header nav {
 }
 
 #signupForm,
-#loginForm {
+#loginForm, #add-author-frm {
   background-color: var(--primary-bg);
   width: 90%;
   max-width: 500px;
@@ -133,19 +133,6 @@ header nav {
   text-transform: capitalize;
 }
 
-@media (min-width: 640px) {
-  #signupForm {
-    padding: 3rem;
-    .formfieldPair {
-      display: flex;
-      gap: 1rem;
-      width: 100%;
-    }
-    div {
-      width: 100%;
-    }
-  }
-}
 
 
 .btn-primary {
@@ -158,14 +145,14 @@ header nav {
   background-color: var(--primary-btn);
   color: var(--secondary-text);
   cursor: pointer;
-
+  
   transition-property: filter;
   transition-duration: 0.3s;
-
+  
   &:hover:not(:disabled) {
     filter: brightness(1.1);
   }
-
+  
   &:disabled {
     opacity: 0.8;
     cursor: not-allowed;
@@ -183,14 +170,14 @@ header nav {
   color: var(--secondary-text);
   font-size: .8rem;
   cursor: pointer;
-
+  
   transition-property: filter;
   transition-duration: 0.3s;
-
+  
   &:hover:not(:disabled) {
     filter: brightness(1.1);
   }
-
+  
   &:disabled {
     opacity: 0.8;
     cursor: not-allowed;
@@ -235,5 +222,49 @@ footer {
     font-size: .8rem;
     padding-top: 2rem;
     opacity: 50%;
+  }
+}
+
+
+/* Style the table */
+#authorsTable {
+  width: 50%;
+  border-collapse: collapse;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  overflow: hidden;
+  text-align: center;
+  thead {
+    background-color: var(--secondary-btn);  /* Green background */
+    color: var(--secondary-text);
+  }
+  th {
+    padding: 1.2rem;
+    text-align: center;
+    font-size: 1.1em;
+  }
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1em;
+  }
+}
+
+
+
+@media (min-width: 640px) {
+  #signupForm {
+    padding: 3rem;
+    .formfieldPair {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+    }
+    div {
+      width: 100%;
+    }
   }
 }

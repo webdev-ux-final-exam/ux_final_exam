@@ -92,4 +92,8 @@ export default class ApiHandler {
   async loanBook(userId, bookId) {
     return await this.request(`/users/${userId}/books/${bookId}`, "POST");
   }
+
+  async createAuthor(data) {
+    return await this.request("/admin/authors", "POST", data);
+  }
 }
