@@ -11,6 +11,7 @@
   <script src="assets/js/post_author.js" type="module"></script>
   <script src="assets/js/get_publisher.js" type="module"></script>
   <script src="assets/js/post_publisher.js" type="module"></script>
+  <script src="assets/js/post_book.js" type="module"></script>
 </head>
 
 <body>
@@ -40,7 +41,30 @@
         <button class="tablinks" id="tabAddPublisher">Add Publisher</button>
       </div>
       
-      <div id="AddBook" class="tabcontent">Add Book content</div>
+      <div id="AddBook" class="tabcontent">
+        <form id="add-book-frm">
+          <fieldset>
+            <legend>Add new book</legend>
+            <div>
+              <label for="title">Title:</label>
+              <input name="title" type="text">
+            </div>
+            <div>
+              <label for="author_id">Author id:</label>
+              <input name="author_id" type="number" step="1">
+            </div>
+            <div>
+              <label for="publisher_id">Publisher id:</label>
+              <input name="publisher_id" type="number" step="1">
+            </div>
+            <div>
+              <label for="publishing_year">Publishing year:</label>
+              <input id="publishing_year" name="publishing_year" type="number" step="1">
+            </div>
+            <button class="btn-primary" type="submit">Add</button>
+          </fieldset>
+        </form>
+      </div>
 
 
       <div id="AddAuthor" class="tabcontent">
