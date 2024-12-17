@@ -17,11 +17,11 @@ const addBook = (bookId, title, author, year, company) => {
   bookList.appendChild(clone);
 };
 
-async function fetchRandomBooks(amount = 24) {
+async function fetchAuthorBooks(authorId) {
   bookList.innerHTML = "";
 
   try {
-    const response = await api.getBooksByNumber(amount);
+    const response = await api.getBooksByAuthor(authorId);
     if (!response.success) {
       console.error("Error fetching books:", response);
       return;
@@ -43,39 +43,42 @@ async function fetchRandomBooks(amount = 24) {
   }
 }
 
-fetchRandomBooks();
+const currentUrl = window.location.href;
+const url = new URL(currentUrl);
+const authorId = url.searchParams.get("id");
+if (
+  !authorId ||
+  isNaN(authorId) ||
+  Number(authorId) < 1 ||
+  !Number.isInteger(Number(authorId))
+) {
+  window.location.href = "/homepage.html";
+}
 
-document
-  .querySelector("#searchBooks")
-  .addEventListener("change", async (event) => {
-    const searchValue = event.target.value;
-    if (searchValue.length < 3 && searchValue.length !== 0) {
+async function fetchAuthorDetails(authorId) {
+  try {
+    const response = await api.getAuthors();
+    if (!response.success) {
+      console.error("Error fetching author details:", response);
       return;
     }
 
-    bookList.innerHTML = "";
+    const authors = response.data;
+    const author = authors.find(
+      (author) => author.author_id === Number(authorId)
+    );
 
-    try {
-      const response =
-        searchValue.length === 0
-          ? await api.getBooksByNumber(24)
-          : await api.searchBooksByTitle(searchValue);
-
-      if (!response.success) {
-        console.error("Error fetching books:", response);
-        return;
-      }
-
-      const books = response.data;
-      if (books.length === 0) {
-        toast("No books found", "error");
-        return;
-      }
-
-      books.forEach((book) => {
-        addBook(book.title, book.author, book.year, book.publisher);
-      });
-    } catch (err) {
-      console.error("Error fetching books:", err);
+    if (!author) {
+      window.location.href = "/homepage.html";
+      return;
     }
-  });
+
+    document.querySelector(".author-name").textContent = author.author_name;
+  } catch (err) {
+    // global error handler in ApiHandler.js would be better, probably, like a toast
+    console.error("Error fetching author details:", err);
+  }
+}
+
+fetchAuthorBooks(authorId);
+fetchAuthorDetails(authorId);

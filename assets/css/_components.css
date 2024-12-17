@@ -258,6 +258,12 @@ input#searchBooks {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
 
+    header > div {
+      height: calc(
+        1.4rem * 2 + 1.5rem
+      ); /* Ensure container height matches line count */
+    }
+
     &:hover {
       transform: translateY(-4px);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -281,7 +287,6 @@ input#searchBooks {
       -webkit-line-clamp: 2; /* Limits to 2 lines before truncating */
       overflow: hidden; /* Hides overflowing text */
       text-overflow: ellipsis; /* Displays "..." for truncated text */
-      height: calc(1.4em * 2); /* Ensure container height matches line count */
       margin-bottom: 0;
     }
 
