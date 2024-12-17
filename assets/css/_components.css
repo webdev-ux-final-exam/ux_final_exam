@@ -33,7 +33,7 @@ header nav {
   li a {
     color: var(--primary-text);
     font-weight: 600;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -103,6 +103,7 @@ header nav {
 }
 
 #signupForm,
+#editProfileForm,
 #loginForm {
   background-color: var(--primary-bg);
   width: 90%;
@@ -134,7 +135,8 @@ header nav {
 }
 
 @media (min-width: 640px) {
-  #signupForm {
+  #signupForm,
+  #editProfileForm {
     padding: 3rem;
     .formfieldPair {
       display: flex;
@@ -146,7 +148,6 @@ header nav {
     }
   }
 }
-
 
 .btn-primary {
   border: none;
@@ -172,16 +173,15 @@ header nav {
   }
 }
 
-
 .btn-secondary {
   border: none;
   font-family: var(--fontMain);
   font-weight: 600;
   border-radius: 5rem;
-  padding: .6rem 1.5rem;
+  padding: 0.6rem 1.5rem;
   background-color: var(--secondary-btn);
   color: var(--secondary-text);
-  font-size: .8rem;
+  font-size: 0.8rem;
   cursor: pointer;
 
   transition-property: filter;
@@ -209,11 +209,12 @@ footer {
   color: var(--secondary-text);
   padding-bottom: 2rem;
   padding: 4rem 0 2rem 0;
-  a, .logo {
+  a,
+  .logo {
     color: var(--secondary-text);
   }
   > div {
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     max-width: var(--max-screen-width);
     margin: 0 auto;
@@ -227,12 +228,12 @@ footer {
     text-align: left;
     color: var(--primary-text);
     font-weight: 500;
-    font-size: .9rem;
+    font-size: 0.9rem;
     line-height: 1.7rem;
     padding-top: 1.5rem;
   }
   .footer-copyright {
-    font-size: .8rem;
+    font-size: 0.8rem;
     padding-top: 2rem;
     opacity: 50%;
   }

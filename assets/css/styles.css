@@ -64,4 +64,7 @@ input.error {
   background-color: var(--error-color-light);
 }
 
-
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+}
