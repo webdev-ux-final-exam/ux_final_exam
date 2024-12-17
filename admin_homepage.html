@@ -9,6 +9,8 @@
   <script src="assets/js/header.js" type="module"></script>
   <script src="assets/js/get_authors.js" type="module"></script>
   <script src="assets/js/post_author.js" type="module"></script>
+  <script src="assets/js/get_publisher.js" type="module"></script>
+  <script src="assets/js/post_publisher.js" type="module"></script>
 </head>
 
 <body>
@@ -69,16 +71,46 @@
             <tbody>
             </tbody>
           </table>
-          <div id="paginationControls">
-            <button class="pagination-btn" id="prevPage">Prev</button>
-            <span id="pageNumber"></span>
-            <button class="pagination-btn" id="nextPage">Next</button>
+          <div class="paginationControls">
+            <button class="pagination-btn" id="prevPageAuthor">Prev</button>
+            <span id="pageNumberAuthor"></span>
+            <button class="pagination-btn" id="nextPageAuthor">Next</button>
           </div>
         </div>
       </div>
 
 
-      <div id="AddPublisher" class="tabcontent">Add Publisher content</div>
+      <div id="AddPublisher" class="tabcontent">
+        <form id="add-publisher-frm">
+          <fieldset>
+            <legend>Add new publisher</legend>
+            <div>
+              <label for="name">Name:</label>
+              <input name="name" type="text">
+            </div>
+            <button class="btn-primary" type="submit">Add</button>
+          </fieldset>
+        </form>
+
+        <h2>All Publishers</h2>
+        <div class="pagination-container">
+          <table id="publishersTable">
+            <thead>
+              <tr>
+                <th>Publisher ID</th>
+                <th>Publisher Name</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <div>
+            <button class="pagination-btn" id="prevPagePublisher">Prev</button>
+            <span id="pageNumberPublisher"></span>
+            <button class="pagination-btn" id="nextPagePublisher">Next</button>
+          </div>
+        </div>
+      </div>
     </div>
   
     <div id="toast-container"></div>

@@ -96,4 +96,8 @@ export default class ApiHandler {
   async createAuthor(data) {
     return await this.request("/admin/authors", "POST", data);
   }
+
+  async createPublisher(data) {
+    return await this.request("/admin/publishers", "POST", data);
+  }
 }

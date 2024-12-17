@@ -1,4 +1,4 @@
-export function initializePagination(items, itemsPerPage, renderCallback) {
+export function initializePagination(items, itemsPerPage, renderCallback, paginationSelectors) {
   const totalPages = Math.ceil(items.length / itemsPerPage);
 
   // Handle page navigation
@@ -7,9 +7,10 @@ export function initializePagination(items, itemsPerPage, renderCallback) {
   // Show the first page
   renderCallback(items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage));
 
-  const pageNumberElement = document.getElementById("pageNumber");
-  const prevPageButton = document.getElementById("prevPage");
-  const nextPageButton = document.getElementById("nextPage");
+  // Get the pagination controls using the provided selectors
+  const pageNumberElement = document.querySelector(paginationSelectors.pageNumber);
+  const prevPageButton = document.querySelector(paginationSelectors.prevPage);
+  const nextPageButton = document.querySelector(paginationSelectors.nextPage);
 
   // Update page number
   const updatePageNumber = () => {

@@ -9,17 +9,22 @@ document.getElementById("add-author-frm").addEventListener("submit", async (e) =
   const formData = new FormData(e.target);
   const authorData = Object.fromEntries(formData.entries());
 
+  if (!authorData.first_name) {
+    toast("Please fill in all required fields.", "error");
+    return; 
+  }
+
   try {
-    const createAuthor = await api.createAuthor(authorData); 
+    const createAuthor = await api.createAuthor(authorData);
 
     if (createAuthor.success) {
-      toast("Author created", "success");
-
+      toast("Author created", "success"); 
       e.target.reset(); 
     } else {
-      toast("Failed to add author.", "error");
+      toast("Failed to add author.", "error"); 
       console.log(`Status code: ${createAuthor.statusCode}`);
     }
+
   } catch (error) {
     console.error("An error occurred while adding the author:", error);
   }

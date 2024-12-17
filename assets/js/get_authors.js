@@ -32,8 +32,13 @@ async function getAuthors() {
         });
       };
 
+      const authorsPaginationSelectors = {
+        pageNumber: "#pageNumberAuthor",
+        prevPage: "#prevPageAuthor",
+        nextPage: "#nextPageAuthor"
+      };
       // Initialize pagination and pass the rendering callback
-      initializePagination(authorsData, 19, renderAuthors); // 10 items per page
+      initializePagination(authorsData, 19, renderAuthors, authorsPaginationSelectors); // 10 items per page
     } else {
       console.error(`Failed to fetch authors. Status code: ${authors.statusCode}`);
     }

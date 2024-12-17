@@ -224,7 +224,8 @@ header nav {
 
 
 /* Style the table */
-#authorsTable {
+#authorsTable,
+#publishersTable {
   width: 100%;
   border-collapse: collapse;
   box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
@@ -253,7 +254,8 @@ header nav {
 }
 
 
-#add-author-frm {
+#add-author-frm,
+#add-publisher-frm {
   width: 100%;
   margin-bottom: 3rem;
   border-radius: 1rem;
@@ -307,6 +309,7 @@ header nav {
 .tabcontent {
   display: none;
   width: 80%;
+  padding-bottom: 3rem;
 }
 
 
