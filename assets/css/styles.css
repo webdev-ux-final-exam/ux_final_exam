@@ -43,6 +43,11 @@ h2 {
   padding-bottom: 1rem;
 }
 
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
 p {
   line-height: normal;
 }
@@ -74,4 +79,25 @@ input.error {
   background-color: var(--error-color-light);
 }
 
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+}
 
+.bg-tertiary {
+  background-color: var(--tertiary-bg);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-bg);
+}
+
+.bg-primary {
+  background-color: var(--primary-bg);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

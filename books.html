@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book - Booklet</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/header.js" type="module"></script>
+  <script src="assets/js/get_book.js" type="module"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a class="logo" id="logo-btn" href="index.html" aria-label="Home">Booklet</a>
+      <ul>
+        <li><a href="about.html" aria-label="About">About</a></li>
+        <li><a id="auth-btn" aria-label="Log In">Log In</a></li>
+        <li><a id="signup-btn" class="btn-secondary" href="signup.html" aria-label="Sign Up">Create Account</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <div class="book-details">
+        <img src="https://placehold.co/265x475?text=No+Cover" class="cover" alt="Book cover">
+        <div class="flex-col">
+          <header>
+            <h1 class="title">Loading book ..</h1>
+            <p>by author <span class="author">...</span> <a href="" class="author-link">(See more by this author)</a>
+            </p>
+          </header>
+
+          <p>Published in <span class="year">...</span> by <span class="publisher">...</span>.</p>
+
+          <p>You can loan this book for 30 days with an account.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <p class="logo">Booklet</p>
+      <div>
+        <p class="footer-title">Information</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <p class="footer-copyright">&copy; 2024 UX group</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+</body>
+
+</html>

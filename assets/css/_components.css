@@ -4,7 +4,7 @@ section:not(.hero) {
   padding: 2rem 1rem;
 
   > div {
-    max-width: var(--max-width-content);
+    max-width: var(--max-screen-width);
     margin: 0 auto;
   }
 }
@@ -31,7 +31,7 @@ header nav {
   li a {
     color: var(--primary-text);
     font-weight: 600;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -101,6 +101,7 @@ header nav {
 }
 
 #signupForm,
+#editProfileForm,
 #loginForm {
   background-color: var(--primary-bg);
   width: 90%;
@@ -131,7 +132,20 @@ header nav {
   text-transform: capitalize;
 }
 
-
+@media (min-width: 640px) {
+  #signupForm,
+  #editProfileForm {
+    padding: 3rem;
+    .formfieldPair {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+    }
+    div {
+      width: 100%;
+    }
+  }
+}
 
 .btn-primary {
   border: none;
@@ -157,16 +171,15 @@ header nav {
   }
 }
 
-
 .btn-secondary {
   border: none;
   font-family: var(--fontMain);
   font-weight: 600;
   border-radius: 5rem;
-  padding: .6rem 1.5rem;
+  padding: 0.6rem 1.5rem;
   background-color: var(--secondary-btn);
   color: var(--secondary-text);
-  font-size: .8rem;
+  font-size: 0.8rem;
   cursor: pointer;
   
   transition-property: filter;
@@ -302,12 +315,12 @@ footer {
   color: var(--secondary-text);
   padding-bottom: 2rem;
   padding: 4rem 0 2rem 0;
-  margin-top: 3rem;
-  a, .logo {
+  a,
+  .logo {
     color: var(--secondary-text);
   }
   > div {
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     max-width: var(--max-screen-width);
     margin: 0 auto;
@@ -321,28 +334,83 @@ footer {
     text-align: left;
     color: var(--primary-text);
     font-weight: 500;
-    font-size: .9rem;
+    font-size: 0.9rem;
     line-height: 1.7rem;
     padding-top: 1.5rem;
   }
   .footer-copyright {
-    font-size: .8rem;
+    font-size: 0.8rem;
     padding-top: 2rem;
     opacity: 50%;
   }
 }
 
+input#searchBooks {
+  width: 16rem;
+}
 
-@media (min-width: 640px) {
-  #signupForm {
-    padding: 3rem;
-    .formfieldPair {
-      display: flex;
-      gap: 1rem;
-      width: 100%;
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+
+  > article {
+    background: var(--primary-bg);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
-    div {
-      width: 100%;
+
+    .book-details {
+      padding: 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .book-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 10px;
+      line-height: 1.4;
+      display: -webkit-box; /* Enables the box layout for line clamping */
+      -webkit-box-orient: vertical; /* Specifies vertical arrangement of boxes */
+      -webkit-line-clamp: 2; /* Limits to 2 lines before truncating */
+      overflow: hidden; /* Hides overflowing text */
+      text-overflow: ellipsis; /* Displays "..." for truncated text */
+      height: calc(1.4em * 2); /* Ensure container height matches line count */
+      margin-bottom: 0;
+    }
+
+    .book-author {
+      color: #555;
+      font-size: 0.9rem;
+      margin: 0 0 10px;
+    }
+
+    .book-meta {
+      display: flex;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    .book-meta span {
+      white-space: nowrap;
     }
   }
+}
+
+.book-details {
+  display: flex;
+  gap: 3rem;
 }

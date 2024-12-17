@@ -34,73 +34,64 @@
       </div>
     </section>
 
-    <section>
-      <div>
-        <h2>Header</h2>
-        <p>Lorem ipsum</p>
-        <button class="btn-primary">Button</button>
-      </div>
-    </section>
+    <section class="bg-tertiary">
+      <div class="flex-col">
+        <header class="justify-between">
+          <h2>Books available</h2>
 
-    <section>
-      <h2>Features</h2>
-      <section>
-        <article>
-          <h3>Feature</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officia, ad saepe, minima debitis nam
-            omnis a facere sapiente consequuntur blanditiis fugiat libero nostrum maxime, id assumenda nobis
-            error magni.</p>
-        </article>
-        <article>
-          <h3>Feature</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officia, ad saepe, minima debitis nam
-            omnis a facere sapiente consequuntur blanditiis fugiat libero nostrum maxime, id assumenda nobis
-            error magni.</p>
-        </article>
-        <article>
-          <h3>Feature</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officia, ad saepe, minima debitis nam
-            omnis a facere sapiente consequuntur blanditiis fugiat libero nostrum maxime, id assumenda nobis
-            error magni.</p>
-        </article>
-      </section>
-    </section>
+          <input class="bg-primary" type="text" name="searchBooks" id="searchBooks" placeholder="Search books"
+            aria-label="Search books">
+        </header>
 
-    <section>
-      <header>
-        <h2>Random Books</h2>
-      </header>
-      <div id="random-book-list">
-
+        <div class="book-grid" id="book-grid">
+          <article>
+            <div class="book-details">
+              <header>
+                <h3 class="book-title">Book Title Here</h3>
+                <p class="book-author">by Author Name</p>
+              </header>
+              <div class="book-meta">
+                <span class="book-year">2021</span>
+                <span class="book-company">Publishing Company</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
+  <footer>
+    <div>
+      <p class="logo">Booklet</p>
+      <div>
+        <p class="footer-title">Information</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <p class="footer-copyright">&copy; 2024 UX group</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+
   <template id="book-template">
     <article>
-      <h3></h3>
-      <p class="book-author"></p>
-      <p class="book-publishing"></p>
-      <a href="" class="book-link">
-        <button class="btn-primary" type="button">Loan book</button>
+      <a class="book-details" href="">
+        <header>
+          <h3 class="book-title">Book Title Here</h3>
+          <p class="book-author">by Author Name</p>
+        </header>
+        <div class="book-meta">
+          <span class="book-year">2021</span>
+          <span class="book-company">Publishing Company</span>
+        </div>
       </a>
     </article>
   </template>
-
-  <footer>
-      <div>
-        <p class="logo">Booklet</p>
-        <div>
-          <p class="footer-title">Information</p>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-          <p class="footer-copyright">&copy; 2024 UX group</p>
-        </div>
-      </div>
-  </footer>
 </body>
 
 </html>
