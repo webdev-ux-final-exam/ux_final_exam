@@ -1,5 +1,5 @@
 export default class ApiHandler {
-  constructor(baseUrl) {
+  constructor(baseUrl = "https://py-library-api-v2.server.steffen.codes") {
     this.baseUrl = baseUrl;
   }
 
