@@ -23,9 +23,15 @@ async function getAuthorByName(authorName) {
 
 async function loadBookId(bookId) {
   try {
-    const response = await api.getBookDetails(bookId);
+    const userEmail = localStorage.getItem("email");
+    const isAdmin = userEmail === "admin.library@mail.com";
+
+    const response = isAdmin
+      ? await api.getAdminBook(bookId)
+      : await api.getBookDetails(bookId);
+
     if (!response.success) {
-      console.error("Error fetching books:", response);
+      console.error("Error fetching book:", response);
       return;
     }
 
@@ -43,7 +49,23 @@ async function loadBookId(bookId) {
     const author = await getAuthorByName(book.author);
     bookContainer.querySelector(
       ".author-link"
-    ).href = `/authors.html?id=${author.author_id}`;
+    ).href = `/authors.html?id=${book.author_id}`;
+
+
+    if (isAdmin && book.loans && book.loans.length > 0) {
+      const loanContainer = document.querySelector(".loan-container");
+
+      loanContainer.querySelector(".loan-title").textContent = "Loan History:"
+
+      const loanList = document.createElement("ul");
+      book.loans.forEach((loan) => {
+        const loanItem = document.createElement("li");
+        loanItem.textContent = `User ID: ${loan.user_id}, Loan Date: ${loan.loan_date}`;
+        loanList.appendChild(loanItem);
+      });
+      loanContainer.appendChild(loanList);
+    }
+
   } catch (err) {
     // global error handler in ApiHandler.js would be better, probably, like a toast
     console.error("Error fetching books:", err);

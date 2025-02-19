@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-const api = new ApiHandler("https://py-library-api-v2.server.steffen.codes");
+const api = new ApiHandler();
 
 const loginForm = document.getElementById("loginForm");
 
@@ -21,14 +21,22 @@ loginForm.addEventListener("submit", async (e) => {
 
   submitButton.disabled = true;
   const loginResult = await api.loginUser(data.email.trim(), data.password);
+
   if (loginResult.success) {
+    const userEmail = data.email.trim();
     localStorage.setItem("userId", loginResult.data.user_id);
-    localStorage.setItem("email", data.email.trim());
-    toast("Login successful, navigating you to the frontpage ..", "success");
+    localStorage.setItem("email", userEmail);
+
+    toast("Login successful", "success");
+
     setTimeout(() => {
-      window.location.href = "/homepage.html";
+      if (userEmail === "admin.library@mail.com") {
+        window.location.href = "/admin_homepage.html";
+      } else {
+        window.location.href = "/homepage.html";
+      }
       updateHeader(); 
-    }, 2000);
+    }, 1000);
   } else {
     submitButton.disabled = false;
     switch (loginResult.statusCode) {

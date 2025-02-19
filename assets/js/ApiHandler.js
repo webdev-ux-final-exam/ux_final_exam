@@ -1,5 +1,8 @@
 export default class ApiHandler {
-  constructor(baseUrl = "https://py-library-api-v2.server.steffen.codes") {
+  // constructor(baseUrl = "https://py-library-api-v2.server.steffen.codes") {
+  //   this.baseUrl = baseUrl;
+  // }
+  constructor(baseUrl = "http://localhost:8080") {
     this.baseUrl = baseUrl;
   }
 
@@ -91,5 +94,21 @@ export default class ApiHandler {
 
   async loanBook(userId, bookId) {
     return await this.request(`/users/${userId}/books/${bookId}`, "POST");
+  }
+
+  async createAuthor(data) {
+    return await this.request("/admin/authors", "POST", data);
+  }
+
+  async createPublisher(data) {
+    return await this.request("/admin/publishers", "POST", data);
+  }
+
+  async createBook(data) {
+    return await this.request("/admin/books", "POST", data);
+  }
+
+  async getAdminBook(bookId) {
+    return await this.request(`/admin/books/${bookId}`, "GET");
   }
 }

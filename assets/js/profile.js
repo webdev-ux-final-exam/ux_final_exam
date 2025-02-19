@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-const api = new ApiHandler("https://py-library-api-v2.server.steffen.codes");
+const api = new ApiHandler();
 
 const editProfileForm = document.getElementById("editProfileForm");
 

@@ -1,8 +1,6 @@
 @import "_variables.css";
 
 section:not(.hero) {
-  padding: 2rem 1rem;
-
   > div {
     max-width: var(--max-screen-width);
     margin: 0 auto;
@@ -10,12 +8,10 @@ section:not(.hero) {
 }
 
 header:has(nav) {
-  position: sticky;
-  top: 0;
-
   height: 6rem;
   background-color: var(--primary-bg);
   padding: 0 1rem;
+  margin-bottom: 1rem;
 }
 
 header nav {
@@ -34,6 +30,7 @@ header nav {
     color: var(--primary-text);
     font-weight: 600;
     font-size: 0.9rem;
+    cursor: pointer;
   }
 }
 
@@ -121,13 +118,13 @@ header nav {
   button {
     margin-top: 1rem;
   }
-
   hr {
     margin: 1rem 0;
     border: none;
     border-top: 1px solid var(--tertiary-bg);
   }
 }
+
 
 #username-display {
   display: none;
@@ -159,14 +156,14 @@ header nav {
   background-color: var(--primary-btn);
   color: var(--secondary-text);
   cursor: pointer;
-
+  
   transition-property: filter;
   transition-duration: 0.3s;
-
+  
   &:hover:not(:disabled) {
     filter: brightness(1.1);
   }
-
+  
   &:disabled {
     opacity: 0.8;
     cursor: not-allowed;
@@ -183,18 +180,40 @@ header nav {
   color: var(--secondary-text);
   font-size: 0.8rem;
   cursor: pointer;
-
+  
   transition-property: filter;
   transition-duration: 0.3s;
-
+  
   &:hover:not(:disabled) {
     filter: brightness(1.1);
   }
-
+  
   &:disabled {
     opacity: 0.8;
     cursor: not-allowed;
   }
+}
+
+.pagination-btn {
+  border: none;
+  background-color: transparent;
+  font-family: var(--fontMain);
+  font-size: 1rem;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+#pageNumber {
+  padding: 0 1rem;
+
+}
+
+.pagination-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
@@ -203,6 +222,106 @@ header nav {
   font-size: 1.8rem;
   color: var(--primary-text);
 }
+
+
+
+/* Style the table */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 0.6rem;
+  thead {
+    background-color: var(--secondary-btn);  /* Green background */
+    color: var(--secondary-text);
+  }
+  th {
+    padding: 1.2rem;
+    text-align: center;
+    font-size: 1.1em;
+    width: 50%;
+  }
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1em;
+  }
+}
+
+
+.admin-add-frm {
+  width: 100%;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+  legend {
+    font-family: var(--fontHeader);
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+#AllBooks.tabcontent  {
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background-color: var(--tertiary-bg);
+}
+
+
+.tab-container {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+
+.tab {
+  width: 20%; 
+  height: 30rem;
+  padding: 2rem;
+  background-color: var(--secondary-btn);
+  border-radius: 1rem;
+  h1 {
+    color: var(--secondary-text);
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
+  button {
+    color: var(--secondary-text);
+    font-family: var(--fontMain);
+    font-weight: 200;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  button:last-child {
+    margin-top: 2rem;
+  }
+}
+
+.tab button:hover, .tab button.active {
+  text-decoration: underline;
+}
+
+.tabcontent {
+  display: none;
+  width: 80%;
+  padding-bottom: 3rem;
+}
+
 
 footer {
   background-color: var(--secondary-btn);
