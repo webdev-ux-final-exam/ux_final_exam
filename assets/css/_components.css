@@ -1,6 +1,7 @@
 @import "_variables.css";
 
 section:not(.hero) {
+  padding: 2rem 1rem;
   > div {
     max-width: var(--max-screen-width);
     margin: 0 auto;
@@ -31,6 +32,9 @@ header nav {
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
+  }
+  li a:hover {
+    text-decoration: underline;
   }
 }
 
@@ -362,6 +366,19 @@ input#searchBooks {
   width: 16rem;
 }
 
+.author-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  li {
+    list-style: none;
+  }
+  li > a:hover {
+    text-decoration: underline;
+  }
+}
+
 .book-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -431,4 +448,7 @@ input#searchBooks {
 .book-details {
   display: flex;
   gap: 3rem;
+  img {
+    max-width: 25rem;
+  }
 }

@@ -17,24 +17,26 @@ const isUserLoggedIn = () => {
 // change header based on whether or not the user is logged in 
 const updateHeader = () => {
   const authButton = document.getElementById("auth-btn");
-  // const signupButton = document.getElementById("signup-btn")
-  // const logoButton = document.getElementById("logo-btn")
-  // const userEmail  = localStorage.getItem("email")
+  const signupButton = document.getElementById("signup-btn")
+  const logoButton = document.getElementById("logo-btn")
+  const userEmail  = localStorage.getItem("email")
 
   if (isUserLoggedIn()) {
     authButton.textContent = "Log Out";
     authButton.ariaLabel = "Log Out"
     authButton.onclick = logout;
-    // signupButton.style.display = "none"
-    // if (userEmail === "admin.library@mail.com") {
-    //   logoButton.href = "/admin_homepage.html"
-    // } else {
-    //   logoButton.href = "/homepage.html"
-    // }
+    signupButton.style.display = "none"
+    if (userEmail === "admin.library@mail.com") {
+      logoButton.href = "/admin-homepage.html"
+    } else {
+      logoButton.href = "/homepage.html"
+    }
 
   } else {
     authButton.textContent = "Log In";
+    authButton.ariaLabel = "Log In"
     authButton.href = "/login.html"; 
+    logoButton.href = "/index.html"
   }
 };
 
