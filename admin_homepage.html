@@ -10,39 +10,34 @@
   <script src="assets/js/get_authors.js" type="module"></script>
   <script src="assets/js/post_author.js" type="module"></script>
   <script src="assets/js/get_publisher.js" type="module"></script>
+  <script src="assets/js/get_books.js" type="module"></script>
   <script src="assets/js/post_publisher.js" type="module"></script>
   <script src="assets/js/post_book.js" type="module"></script>
+  <script src="assets/js/admin_tabs.js" type="module"></script>
 </head>
 
 <body>
   <header>
     <nav>
-      <a class="logo" id="logo-btn" href="index.html" aria-label="Home">Booklet</a>
+      <a class="logo" id="logo-btn" href="admin_homepage.html" aria-label="Home">Booklet</a>
       <ul>
-        <li><a href="about.html" aria-label="About">About</a></li>
         <li><a id="auth-btn" aria-label="Log In">Log In</a></li>
-        <li><a id="signup-btn" class="btn-secondary" href="signup.html" aria-label="Sign Up">Create Account</a></li>
       </ul>
     </nav>
   </header>
 
-
-
-
-
-
   <main>
-    
     <div class="tab-container">
-      <div class="tab">
+      <nav class="tab">
         <h1>Admin dashboard</h1>
         <button class="tablinks" id="tabAddBook">Add Book</button>
         <button class="tablinks" id="tabAddAuthor">Add Author</button>
         <button class="tablinks" id="tabAddPublisher">Add Publisher</button>
-      </div>
+        <button class="tablinks" id="tabAllBooks">All Books</button>
+      </nav>
       
-      <div id="AddBook" class="tabcontent">
-        <form id="add-book-frm">
+      <section id="AddBook" class="tabcontent">
+        <form id="add-book-frm" class="admin-add-frm">
           <fieldset>
             <legend>Add new book</legend>
             <div>
@@ -64,11 +59,11 @@
             <button class="btn-primary" type="submit">Add</button>
           </fieldset>
         </form>
-      </div>
+      </section>
 
 
-      <div id="AddAuthor" class="tabcontent">
-        <form id="add-author-frm">
+      <section id="AddAuthor" class="tabcontent">
+        <form id="add-author-frm" class="admin-add-frm">
           <fieldset>
             <legend>Add new author</legend>
             <div>
@@ -85,7 +80,7 @@
 
         <h2>All Authors</h2>
         <div class="pagination-container">
-          <table id="authorsTable">
+          <table id="authorsTable" class="admin-table">
             <thead>
               <tr>
                 <th>Author ID</th>
@@ -101,11 +96,11 @@
             <button class="pagination-btn" id="nextPageAuthor">Next</button>
           </div>
         </div>
-      </div>
+      </section>
 
 
-      <div id="AddPublisher" class="tabcontent">
-        <form id="add-publisher-frm">
+      <section id="AddPublisher" class="tabcontent">
+        <form id="add-publisher-frm" class="admin-add-frm">
           <fieldset>
             <legend>Add new publisher</legend>
             <div>
@@ -118,7 +113,7 @@
 
         <h2>All Publishers</h2>
         <div class="pagination-container">
-          <table id="publishersTable">
+          <table id="publishersTable" class="admin-table">
             <thead>
               <tr>
                 <th>Publisher ID</th>
@@ -134,12 +129,43 @@
             <button class="pagination-btn" id="nextPagePublisher">Next</button>
           </div>
         </div>
-      </div>
+      </section>
+
+
+
+      <section id="AllBooks" class="tabcontent">
+        <div class="flex-col">
+          <header class="justify-between">
+            <h2>All Books</h2>
+            <input class="bg-primary" type="text" name="searchBooks" id="searchBooks" placeholder="Search books"
+              aria-label="Search books">
+          </header>
+          <div class="book-grid" id="book-grid"></div>
+        </div>
+
+        <template id="book-template">
+          <article>
+            <a class="book-details" href="">
+              <header>
+                <h3 class="book-title">Book Title Here</h3>
+                <p class="book-author">by Author Name</p>
+              </header>
+              <div class="book-meta">
+                <span class="book-year">2021</span>
+                <span class="book-company">Publishing Company</span>
+              </div>
+            </a>
+          </article>
+        </template>
+      </section>
+
+      
     </div>
-  
+    
+    
+    
     <div id="toast-container"></div>
   </main>
-  
 
   <footer>
     <div>
@@ -155,41 +181,6 @@
       </div>
     </div>
 </footer>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const tablinks = document.querySelectorAll(".tablinks");
-    const tabContents = document.querySelectorAll(".tabcontent");
-  
-    // hide all tab content by default
-    tabContents.forEach(content => {
-      content.style.display = "none";
-    });
-  
-    // add event listener to each tab button
-    tablinks.forEach(tab => {
-      tab.addEventListener("click", function() {
-        // hide all content
-        tabContents.forEach(content => {
-          content.style.display = "none";
-        });
-  
-        // remove 'active' class from all buttons
-        tablinks.forEach(button => {
-          button.classList.remove("active");
-        });
-  
-        // Show the content of the clicked tab
-        const tabId = this.id.replace("tab", ""); // remove 'tab' prefix
-        document.getElementById(tabId).style.display = "block";
-  
-        this.classList.add("active");
-      });
-    });
-    document.getElementById("AddBook").style.display = "block";
-    document.getElementById("tabAddBook").classList.add("active");
-  });
-  
-  </script>
 </body>
 
 </html>

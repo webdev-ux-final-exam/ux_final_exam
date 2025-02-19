@@ -1,6 +1,6 @@
 import ApiHandler from "./ApiHandler.js";
 
-const api = new ApiHandler("https://py-library-api-v2.server.steffen.codes");
+const api = new ApiHandler();
 
 const isLoggedIn = localStorage.getItem("userId") !== null;
 

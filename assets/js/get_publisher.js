@@ -1,7 +1,7 @@
 import { initializePagination } from './pagination.js';
 import ApiHandler from "./ApiHandler.js";
 
-const api = new ApiHandler("https://py-library-api-v2.server.steffen.codes");
+const api = new ApiHandler();
 
 async function getPublishers() {
   const publishersTableBody = document.querySelector("#publishersTable tbody"); // Get the table body

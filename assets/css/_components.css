@@ -1,8 +1,6 @@
 @import "_variables.css";
 
 section:not(.hero) {
-  padding: 2rem 1rem;
-
   > div {
     max-width: var(--max-screen-width);
     margin: 0 auto;
@@ -32,6 +30,7 @@ header nav {
     color: var(--primary-text);
     font-weight: 600;
     font-size: 0.9rem;
+    cursor: pointer;
   }
 }
 
@@ -201,6 +200,9 @@ header nav {
   font-family: var(--fontMain);
   font-size: 1rem;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 #pageNumber {
@@ -224,8 +226,7 @@ header nav {
 
 
 /* Style the table */
-#authorsTable,
-#publishersTable {
+.admin-table {
   width: 100%;
   border-collapse: collapse;
   box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
@@ -254,9 +255,7 @@ header nav {
 }
 
 
-#add-author-frm,
-#add-publisher-frm,
-#add-book-frm {
+.admin-add-frm {
   width: 100%;
   margin-bottom: 3rem;
   border-radius: 1rem;
@@ -268,6 +267,13 @@ header nav {
     font-size: 1.5rem;
     padding-bottom: 1.5rem;
   }
+}
+
+#AllBooks.tabcontent  {
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background-color: var(--tertiary-bg);
 }
 
 
@@ -300,6 +306,9 @@ header nav {
     cursor: pointer;
     font-size: 16px;
     transition: 0.3s;
+  }
+  button:last-child {
+    margin-top: 2rem;
   }
 }
 

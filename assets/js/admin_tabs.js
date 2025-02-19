@@ -1,20 +1,32 @@
-function openCity(evt, cityName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
+document.addEventListener("DOMContentLoaded", function() {
+  const tablinks = document.querySelectorAll(".tablinks");
+  const tabContents = document.querySelectorAll(".tabcontent");
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
+  // hide all tab content by default
+  tabContents.forEach(content => {
+    content.style.display = "none";
+  });
 
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
+  // add event listener to each tab button
+  tablinks.forEach(tab => {
+    tab.addEventListener("click", function() {
+      // hide all content
+      tabContents.forEach(content => {
+        content.style.display = "none";
+      });
 
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+      // remove 'active' class from all buttons
+      tablinks.forEach(button => {
+        button.classList.remove("active");
+      });
+
+      // Show the content of the clicked tab
+      const tabId = this.id.replace("tab", ""); // remove 'tab' prefix
+      document.getElementById(tabId).style.display = "block";
+
+      this.classList.add("active");
+    });
+  });
+  document.getElementById("AddBook").style.display = "block";
+  document.getElementById("tabAddBook").classList.add("active");
+});

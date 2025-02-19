@@ -8,7 +8,7 @@ window.onload = function() {
   yearInput.max = currentYear; 
 };
 
-const api = new ApiHandler("https://py-library-api-v2.server.steffen.codes");
+const api = new ApiHandler();
 
 document.getElementById("add-book-frm").addEventListener("submit", async (e) => {
   e.preventDefault(); 
