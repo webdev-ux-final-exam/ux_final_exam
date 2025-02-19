@@ -23,18 +23,25 @@ header nav {
   align-items: center;
   height: 100%;
 
-  ul {
+  ul, li{
     display: flex;
-    gap: 1.5rem;
   }
-  li a {
+  li {
+    align-items: center; 
+    a {
+    margin-right: 1.5rem;
     color: var(--primary-text);
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
+    display: flex;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   }
-  li a:hover {
-    text-decoration: underline;
+  [aria-label="Profile"] {
+    display: none;
   }
 }
 

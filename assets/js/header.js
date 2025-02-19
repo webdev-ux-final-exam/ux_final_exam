@@ -20,14 +20,21 @@ const updateHeader = () => {
   const signupButton = document.getElementById("signup-btn")
   const logoButton = document.getElementById("logo-btn")
   const userEmail  = localStorage.getItem("email")
+  const authorsPage = document.querySelector('[aria-label="Authors"]')
+  const booksPage = document.querySelector('[aria-label="Books"]')
+  const profilePage = document.querySelector('[aria-label="Profile"]')
+
 
   if (isUserLoggedIn()) {
     authButton.textContent = "Log Out";
     authButton.ariaLabel = "Log Out"
     authButton.onclick = logout;
     signupButton.style.display = "none"
+    profilePage.style.display = "flex"
     if (userEmail === "admin.library@mail.com") {
       logoButton.href = "/admin-homepage.html"
+      authorsPage.style.display = "none"
+      booksPage.style.display = "none"
     } else {
       logoButton.href = "/homepage.html"
     }
