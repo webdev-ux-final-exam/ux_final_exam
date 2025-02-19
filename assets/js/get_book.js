@@ -3,6 +3,24 @@ import { toast } from "./toast.js";
 
 const api = new ApiHandler();
 
+async function getAuthorByName(authorName) {
+  try {
+    const response = await api.getAuthors();
+    if (!response.success) {
+      console.error("Error fetching authors:", response);
+      return;
+    }
+
+    const authors = response.data;
+    const author = authors.find((author) => author.author_name === authorName);
+
+    return author;
+  } catch (err) {
+    // global error handler in ApiHandler.js would be better, probably, like a toast
+    console.error("Error fetching authors:", err);
+  }
+}
+
 async function loadBookId(bookId) {
   try {
     const userEmail = localStorage.getItem("email");
@@ -27,9 +45,11 @@ async function loadBookId(bookId) {
     bookContainer.querySelector(".year").textContent = book.publishing_year;
     bookContainer.querySelector(".publisher").textContent =
       book.publishing_company;
+
+    const author = await getAuthorByName(book.author);
     bookContainer.querySelector(
       ".author-link"
-    ).hreef = `/authors.html?id=${book.author_id}`;
+    ).href = `/authors.html?id=${book.author_id}`;
 
 
     if (isAdmin && book.loans && book.loans.length > 0) {
@@ -43,7 +63,6 @@ async function loadBookId(bookId) {
         loanItem.textContent = `User ID: ${loan.user_id}, Loan Date: ${loan.loan_date}`;
         loanList.appendChild(loanItem);
       });
-
       loanContainer.appendChild(loanList);
     }
 

@@ -4,11 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Booklet | Homepage</title>
+  <title>Booklet</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/header.js" type="module"></script>
-  <script src="assets/js/homepage.js" type="module"></script>
-  <script src="assets/js/get_books.js" type="module"></script>
+  <script src="assets/js/get_author_books.js" type="module"></script>
 </head>
 
 <body>
@@ -24,24 +23,22 @@
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="welcome-heading">
-      <img src="assets/images/online-library2.svg" alt="Online Library illustration">
+    <section>
       <div>
-        <h1 id="welcome-heading">Welcome back <span id="username-display"></span></h1>
+        <h1>More by author <span class="author-name">...</span></h1>
+        <p>
+          Here are more books by the author. Click on a book to view more details.
+        </p>
       </div>
     </section>
 
     <section class="bg-tertiary">
       <div class="flex-col">
-        <header class="justify-between">
-          <h2>Books available</h2>
-
-          <input class="bg-primary" type="text" name="searchBooks" id="searchBooks" placeholder="Search books"
-            aria-label="Search books">
+        <header>
+          <h2>All books by author</h2>
         </header>
 
-        <div class="book-grid" id="book-grid">
-        </div>
+        <div class="book-grid" id="book-grid"></div>
       </div>
     </section>
   </main>
@@ -61,6 +58,8 @@
     </div>
   </footer>
 
+  <div id="toast-container"></div>
+
   <template id="book-template">
     <article>
       <a class="book-details" href="">
@@ -77,8 +76,6 @@
       </a>
     </article>
   </template>
-
-  <div id="toast-container"></div>
 </body>
 
 </html>
