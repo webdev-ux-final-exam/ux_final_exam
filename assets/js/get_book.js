@@ -55,14 +55,14 @@ async function loadBookId(bookId) {
 
     if (!isLoggedIn) {
       const loanMessage = document.createElement("p");
-      loanMessage.textContent = "NEW You can loan this book for 30 days with an account.";
+      loanMessage.textContent = "You can loan this book for 30 days with an account.";
       document.querySelector(".book-details .flex-col").appendChild(loanMessage);
     }
 
     if (isLoggedIn && !isAdmin) {
       const loanBtn = document.getElementById("loan-btn");
-      if (loanBtn) {  // CHANGED: Check if the button exists
-        loanBtn.style.display = "block";
+      if (loanBtn) {
+        loanBtn.classList.remove("hidden")
       }
     }
     

@@ -135,7 +135,6 @@ header nav {
 
 
 #username-display {
-  display: none;
   text-transform: capitalize;
 }
 
@@ -205,9 +204,9 @@ header nav {
   color: var(--error-color-dark);
 }
 
-#loan-btn {
+/* #loan-btn {
   display: none;
-}
+} */
 
 .pagination-container {
   display: flex;

@@ -16,7 +16,7 @@ if (isLoggedIn) {
 
         // Display the first name
         usernameDisplay.textContent = `${firstName}`;
-        usernameDisplay.style.display = "block";
+        usernameDisplay.classList.remove("hidden")
 
       } else {
         console.error("Failed to fetch user details:", response.statusCode);
