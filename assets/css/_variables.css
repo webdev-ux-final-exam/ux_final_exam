@@ -5,14 +5,13 @@
   --fontHeader: "Playfair Display", serif;
   
   --primary-bg: #ffffff;
-  --secondary-bg: #a8bcaa;
+  --secondary-bg: #1f2232;
   --tertiary-bg: #efefef;
 
   --primary-text: #101119;
   --secondary-text: #ffffff;
+  --tertiary-text: #777777;
 
-  --accent-color: #ffc857;
-  --secondary-accent: #6b705c;
   --error-color-dark: #e74c3c;
   --error-color-light: #ffe0de;
   --succes-color: #2ecc71;

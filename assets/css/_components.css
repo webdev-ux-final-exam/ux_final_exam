@@ -87,7 +87,7 @@ header nav {
 }
 
 .toast {
-  background-color: #333;
+  background-color: var(--secondary-bg);
   color: var(--secondary-text);
   padding: 1rem 2rem;
   border-radius: 0.3rem;
@@ -246,7 +246,7 @@ header nav {
   text-align: center;
   margin-bottom: 0.6rem;
   thead {
-    background-color: var(--secondary-btn);  /* Green background */
+    background-color: var(--secondary-bg); 
     color: var(--secondary-text);
   }
   th {
@@ -256,11 +256,10 @@ header nav {
     width: 50%;
   }
   tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: var(--tertiary-bg);
   }
   td {
     padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
     font-size: 1em;
   }
 }
@@ -298,7 +297,7 @@ header nav {
   width: 20%; 
   height: 30rem;
   padding: 2rem;
-  background-color: var(--secondary-btn);
+  background-color: var(--secondary-bg);
   border-radius: 1rem;
   h1 {
     color: var(--secondary-text);
@@ -335,7 +334,7 @@ header nav {
 
 
 footer {
-  background-color: var(--secondary-btn);
+  background-color: var(--secondary-bg);
   color: var(--secondary-text);
   padding-bottom: 2rem;
   padding: 4rem 0 2rem 0;
@@ -425,6 +424,7 @@ input#searchBooks {
       font-weight: 600;
       margin: 0 0 10px;
       line-height: 1.4;
+      line-clamp: 2;
       display: -webkit-box; /* Enables the box layout for line clamping */
       -webkit-box-orient: vertical; /* Specifies vertical arrangement of boxes */
       -webkit-line-clamp: 2; /* Limits to 2 lines before truncating */
@@ -434,7 +434,7 @@ input#searchBooks {
     }
 
     .book-author {
-      color: #555;
+      color: var(--tertiary-text);
       font-size: 0.9rem;
       margin: 0 0 10px;
     }
@@ -443,7 +443,7 @@ input#searchBooks {
       display: flex;
       gap: 10px;
       font-size: 0.8rem;
-      color: #777;
+      color: var(--tertiary-text)
     }
 
     .book-meta span {
