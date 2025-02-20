@@ -1,94 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Booklet | Sign up</title>
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="assets/js/signup.js" type="module"></script>
-    <script src="assets/js/header.js" type="module"></script>
 
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booklet | Sign up</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/js/signup.js" type="module"></script>
+  <script src="assets/js/header.js" type="module"></script>
 
-  <body>
-    <header>
-      <nav>
-        <a aria-label="Home" class="logo" id="logo-btn" href="index.html">Booklet</a>
-        <ul>
-          <li><a aria-label="Authors" href="all-authors.html">Authors</a></li>
-          <li><a aria-label="Books" href="all-books.html">Books</a></li>
-          <li><a aria-label="Log In" id="auth-btn">Log In</a></li>
-          <li><a aria-label="Sign Up" id="signup-btn" class="btn btn-secondary" href="signup.html">Create Account</a></li>
-        </ul>
-      </nav>
-    </header>
+</head>
 
-    <main>
-      <form method="POST" id="signupForm" novalidate>
-        <fieldset>
-          <legend>Sign up</legend>
+<body>
+  <header>
+    <nav>
+      <a aria-label="Home" class="logo" id="logo-btn" href="index.html">Booklet</a>
+      <ul>
+        <li><a aria-label="Authors" href="all-authors.html">Authors</a></li>
+        <li><a aria-label="Books" href="all-books.html">Books</a></li>
+        <li><a aria-label="Log In" id="auth-btn">Log In</a></li>
+        <li><a aria-label="Sign Up" id="signup-btn" class="btn btn-secondary" href="signup.html">Create Account</a></li>
+      </ul>
 
-          <div class="formfieldPair">
-            <div>
-              <label for="first_name">First name:</label>
-              <input id="first_name" type="text" name="first_name" placeholder="John" required/>
-            </div>
-            <div>
-              <label for="last_name">Last name:</label>
-              <input id="last_name" type="text" name="last_name" placeholder="Doe" required/>
-            </div>
-          </div>
+      <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 -960 960 960" width="2rem" fill="currentColor">
+        <path
+          d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z" />
+      </svg>
+    </nav>
+  </header>
 
+  <main>
+    <form method="POST" id="signupForm" novalidate>
+      <fieldset>
+        <legend>Sign up</legend>
+
+        <div class="formfieldPair">
           <div>
-            <label for="email">E-mail:</label>
-            <input id="email" type="email" name="email" placeholder="john@doe.com" required/>
+            <label for="first_name">First name:</label>
+            <input id="first_name" type="text" name="first_name" placeholder="John" required />
           </div>
-
           <div>
-            <label for="address">Address:</label>
-            <input id="address" type="text" name="address" placeholder="123 Main Street, 1234 Anytown" required/>
+            <label for="last_name">Last name:</label>
+            <input id="last_name" type="text" name="last_name" placeholder="Doe" required />
           </div>
-
-          <div class="formfieldPair">
-            <div>
-              <label for="phone_number">Phone number:</label>
-              <input id="phone_number" type="tel" name="phone_number" placeholder="12 34 56 78" required/>
-            </div>
-            <div>
-              <label for="birth_date">Birth date:</label>
-              <input id="birth_date" type="date" name="birth_date" placeholder="Choose date" required/>
-            </div>
-          </div>
-
-          <div>
-            <label for="password">Password:</label>
-            <input id="password" type="password" name="password" required/>
-          </div>
-
-          <div>
-            <label for="confirm_password">Confirm Password:</label>
-            <input id="confirm_password" type="password" name="confirm_password" required/>
-          </div>
-
-          <button class="btn btn-primary" type="submit">Sign up</button>
-        </fieldset>
-      </form>
-      <div id="toast-container"></div>
-    </main>
-
-    <footer>
-      <div>
-        <p class="logo">Booklet</p>
-        <div>
-          <p class="footer-title">Information</p>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-          <p class="footer-copyright">&copy; 2024 UX group</p>
         </div>
+
+        <div>
+          <label for="email">E-mail:</label>
+          <input id="email" type="email" name="email" placeholder="john@doe.com" required />
+        </div>
+
+        <div>
+          <label for="address">Address:</label>
+          <input id="address" type="text" name="address" placeholder="123 Main Street, 1234 Anytown" required />
+        </div>
+
+        <div class="formfieldPair">
+          <div>
+            <label for="phone_number">Phone number:</label>
+            <input id="phone_number" type="tel" name="phone_number" placeholder="12 34 56 78" required />
+          </div>
+          <div>
+            <label for="birth_date">Birth date:</label>
+            <input id="birth_date" type="date" name="birth_date" placeholder="Choose date" required />
+          </div>
+        </div>
+
+        <div>
+          <label for="password">Password:</label>
+          <input id="password" type="password" name="password" required />
+        </div>
+
+        <div>
+          <label for="confirm_password">Confirm Password:</label>
+          <input id="confirm_password" type="password" name="confirm_password" required />
+        </div>
+
+        <button class="btn btn-primary" type="submit">Sign up</button>
+      </fieldset>
+    </form>
+    <div id="toast-container"></div>
+  </main>
+
+  <footer>
+    <div>
+      <p class="logo">Booklet</p>
+      <div>
+        <p class="footer-title">Information</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <p class="footer-copyright">&copy; 2024 UX group</p>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+
+  <div id="mobile-navigation">
+    <header class="nav">
+      <a aria-label="Home" class="logo" id="logo-btn-mobile" href="index.html">Booklet</a>
+
+      <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 -960 960 960" width="2rem" fill="currentColor">
+        <path
+          d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z" />
+      </svg>
+    </header>
+    <ul>
+      <li><a aria-label="Authors" href="all-authors.html">Authors</a></li>
+      <li><a aria-label="Books" href="all-books.html">Books</a></li>
+      <li><a aria-label="Profile" href="profile.html">Profile</a></li>
+      <li><a aria-label="Log In" id="auth-btn-mobile">Log In</a></li>
+      <li><a aria-label="Sign Up" id="signup-btn-mobile" href="signup.html">Create Account</a></li>
+    </ul>
+  </div>
+</body>
+
 </html>
