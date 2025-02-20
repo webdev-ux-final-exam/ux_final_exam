@@ -1,6 +1,7 @@
 @import "_variables.css";
 @import "_reset.css";
 @import "_components.css";
+@import "_responsive.css";
 
 * {
   margin: 0;
@@ -34,13 +35,12 @@ h3 {
 h1 {
   font-size: 2.8rem;
   font-weight: 900;
-  padding-bottom: 2rem;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 800;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
@@ -110,16 +110,25 @@ input.error {
   display: none;
 }
 
-.visually-hidden { 
+.visually-hidden {
   border: 0;
   padding: 0;
   margin: 0;
   position: absolute !important;
-  height: 1px; 
+  height: 1px;
   width: 1px;
   overflow: hidden;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-  clip: rect(1px, 1px, 1px, 1px); /*maybe deprecated but we need to support legacy browsers */
-  clip-path: inset(50%); /*modern browsers, clip-path works inwards from each corner*/
+  clip: rect(
+    1px 1px 1px 1px
+  ); /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(
+    1px,
+    1px,
+    1px,
+    1px
+  ); /*maybe deprecated but we need to support legacy browsers */
+  clip-path: inset(
+    50%
+  ); /*modern browsers, clip-path works inwards from each corner*/
   white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 }

@@ -8,11 +8,25 @@ section:not(.hero, .tabcontent, .tab) {
   }
 }
 
-header:has(nav) {
+header:has(nav),
+header.nav {
   height: 6rem;
-  background-color: var(--primary-bg);
   padding: 0 1rem;
-  margin-bottom: 1rem;
+}
+
+header:has(nav) {
+  background-color: var(--primary-bg);
+}
+
+header.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--primary-bg);
+
+  .logo {
+    color: var(--primary-bg);
+  }
 }
 
 header nav {
@@ -23,7 +37,10 @@ header nav {
   align-items: center;
   height: 100%;
 
-  ul,
+  ul {
+    display: none;
+  }
+
   li {
     display: flex;
   }
@@ -44,30 +61,30 @@ header nav {
 }
 
 .hero {
-  height: calc(100vh - 60px); /* Fallback for browsers that don't support dvh */
-  height: calc(100dvh - 60px);
+  min-height: calc(
+    100vh - 60px
+  ); /* Fallback for browsers that don't support dvh */
+  min-height: calc(100dvh - 60px);
   max-width: var(--max-screen-width);
 
   margin: 0 auto;
 
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
-  gap: 6rem;
+  gap: 3rem;
 
   > img {
-    height: 80%;
+    width: calc(100% + 6rem);
     margin-left: -6rem;
+    margin-bottom: 1rem;
   }
 
   > div {
-    h1 {
-      white-space: nowrap;
-    }
-
+    padding: 0 1rem;
     max-width: var(--max-width-content);
     flex-grow: 1;
-    width: min-content;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -297,35 +314,84 @@ header nav {
 .tab-container {
   display: flex;
   width: 100%;
-  gap: 2rem;
+  padding: 0 1rem;
 }
 
 .tab {
-  width: 20%;
-  height: 30rem;
-  padding: 2rem;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  width: 4rem;
+  max-height: 4rem;
+  height: 100%;
+  border-radius: 2rem;
   background-color: var(--secondary-bg);
-  border-radius: 1rem;
+  box-shadow: -1px -1px 0px 0px var(--primary-bg);
+  overflow: hidden;
+
+  transition-property: max-height;
+  transition-duration: 300ms;
+
+  &.open {
+    max-height: 20rem;
+  }
+
   h1 {
     color: var(--secondary-text);
     font-size: 2rem;
     line-height: 2.3rem;
+    display: none;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
   }
   button {
-    color: var(--secondary-text);
+    position: relative;
+    color: transparent;
     font-family: var(--fontMain);
     font-weight: 200;
-    margin-bottom: 1rem;
     background-color: transparent;
-    width: 100%;
+
     border: none;
     text-align: left;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1px;
     transition: 0.3s;
-  }
-  button:last-child {
-    margin-top: 2rem;
+
+    width: 4rem;
+    height: 4rem;
+
+    &:before {
+      content: "";
+      color: white;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &#openMenu:before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='white'%3E%3Cpath d='M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z' /%3E%3C/svg%3E");
+    }
+
+    &#tabAddBook:before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e8eaed'%3E%3Cpath d='M200-313q10-3 19.5-5t20.5-2h40v-480h-40q-17 0-28.5 11.5T200-760v447Zm40 233q-50 0-85-35t-35-85v-560q0-50 35-85t85-35h240q17 0 28.5 11.5T520-840q0 17-11.5 28.5T480-800H360v480h240v-80q0-17 11.5-28.5T640-440q17 0 28.5 11.5T680-400v160H240q-17 0-28.5 11.5T200-200q0 17 11.5 28.5T240-160h520v-280q0-17 11.5-28.5T800-480q17 0 28.5 11.5T840-440v280q0 33-23.5 56.5T760-80H240Zm-40-233v-487 487Zm500-167q0-92 64-156t156-64q-92 0-156-64t-64-156q0 92-64 156t-156 64q92 0 156 64t64 156Z'/%3E%3C/svg%3E");
+    }
+
+    &#tabAddAuthor:before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e8eaed'%3E%3Cpath d='M720-520h-80q-17 0-28.5-11.5T600-560q0-17 11.5-28.5T640-600h80v-80q0-17 11.5-28.5T760-720q17 0 28.5 11.5T800-680v80h80q17 0 28.5 11.5T920-560q0 17-11.5 28.5T880-520h-80v80q0 17-11.5 28.5T760-400q-17 0-28.5-11.5T720-440v-80Zm-360 40q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM40-240v-32q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v32q0 33-23.5 56.5T600-160H120q-33 0-56.5-23.5T40-240Zm80 0h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0-80Zm0 400Z'/%3E%3C/svg%3E");
+    }
+
+    &#tabAddPublisher:before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e8eaed'%3E%3Cpath d='M160-120q-33 0-56.5-23.5T80-200v-560q0-33 23.5-56.5T160-840h240q33 0 56.5 23.5T480-760v80h320q33 0 56.5 23.5T880-600v200q0 17-11.5 28.5T840-360q-17 0-28.5-11.5T800-400v-200H480v80h80v80h-80v80h80v80h-80v80h120q17 0 28.5 11.5T640-160q0 17-11.5 28.5T600-120H160Zm0-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80ZM840-40q-17 0-28.5-11.5T800-80v-40h-40q-17 0-28.5-11.5T720-160q0-17 11.5-28.5T760-200h40v-40q0-17 11.5-28.5T840-280q17 0 28.5 11.5T880-240v40h40q17 0 28.5 11.5T960-160q0 17-11.5 28.5T920-120h-40v40q0 17-11.5 28.5T840-40ZM640-440v-80h80v80h-80Zm0 160v-80h80v80h-80Z'/%3E%3C/svg%3E");
+    }
+
+    &#tabAllBooks:before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e8eaed'%3E%3Cpath d='M440-400h80q17 0 28.5-11.5T560-440q0-17-11.5-28.5T520-480h-80q-17 0-28.5 11.5T400-440q0 17 11.5 28.5T440-400Zm0-120h240q17 0 28.5-11.5T720-560q0-17-11.5-28.5T680-600H440q-17 0-28.5 11.5T400-560q0 17 11.5 28.5T440-520Zm0-120h240q17 0 28.5-11.5T720-680q0-17-11.5-28.5T680-720H440q-17 0-28.5 11.5T400-680q0 17 11.5 28.5T440-640ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-520q0-17 11.5-28.5T120-720q17 0 28.5 11.5T160-680v520h520q17 0 28.5 11.5T720-120q0 17-11.5 28.5T680-80H160Zm160-720v480-480Z'/%3E%3C/svg%3E");
+    }
   }
 }
 
@@ -336,7 +402,7 @@ header nav {
 
 .tabcontent {
   display: none;
-  width: 80%;
+  width: 100%;
   padding-bottom: 3rem;
 }
 
@@ -344,7 +410,7 @@ footer {
   background-color: var(--secondary-bg);
   color: var(--secondary-text);
   padding-bottom: 2rem;
-  padding: 4rem 0 2rem 0;
+  padding: 4rem 1rem 2rem 1rem;
   a,
   .logo {
     color: var(--secondary-text);
@@ -376,12 +442,12 @@ footer {
 }
 
 input#searchBooks {
-  width: 16rem;
+  width: 6rem;
 }
 
 .author-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
   padding-bottom: 1rem;
   li {
@@ -394,7 +460,7 @@ input#searchBooks {
 
 .book-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 1rem;
 
   > article {
@@ -476,9 +542,11 @@ input#searchBooks {
 
 .book-details {
   display: flex;
+  flex-direction: column-reverse;
   gap: 3rem;
   img {
     max-width: 25rem;
+    margin: 0 auto;
   }
 }
 
@@ -577,7 +645,7 @@ input#searchBooks {
   }
 
   .controls {
-    display: flex;
+    display: none;
     gap: 0.5rem;
     flex-direction: column;
   }
@@ -595,5 +663,44 @@ input#searchBooks {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+  }
+}
+
+#mobile-navigation {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: var(--secondary-bg);
+
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    color: var(--primary-bg);
+    width: 100%;
+
+    font-size: 1.5rem;
+
+    li {
+      width: 100%;
+      margin: 0 2rem;
+      padding-bottom: 1rem;
+      text-align: center;
+
+      &:not(:has(a.visually-hidden)) {
+        border-bottom: 1px solid var(--tertiary-bg);
+      }
+    }
   }
 }

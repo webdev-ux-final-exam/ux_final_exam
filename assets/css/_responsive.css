@@ -1,0 +1,133 @@
+/* sm: 40rem (640px) */
+@media (width >= 40rem) {
+  header nav {
+    ul {
+      display: flex;
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  .author-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  input#searchBooks {
+    width: 16rem;
+  }
+
+  .book-details {
+    flex-direction: row;
+
+    img {
+      margin: initial;
+    }
+  }
+
+  .tab-container {
+    gap: 2rem;
+  }
+
+  .tab {
+    width: 20%;
+    height: 30rem;
+    padding: 2rem;
+    background-color: var(--secondary-bg);
+    border-radius: 1rem;
+
+    nav {
+      display: block;
+    }
+
+    h1 {
+      color: var(--secondary-text);
+      font-size: 2rem;
+      line-height: 2.3rem;
+    }
+    button {
+      color: var(--secondary-text);
+      font-family: var(--fontMain);
+      font-weight: 200;
+      margin-bottom: 1rem;
+      background-color: transparent;
+      width: 100%;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    button:last-child {
+      margin-top: 2rem;
+    }
+  }
+
+  .tab button:hover,
+  .tab button.active {
+    text-decoration: underline;
+  }
+
+  .tabcontent {
+    width: 80%;
+  }
+}
+
+/* md: 48rem (768px) */
+@media (width >= 48rem) {
+  .author-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .page-header {
+    .controls {
+      display: flex;
+    }
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* lg: 64rem (1024px) */
+@media (width >= 64rem) {
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .hero {
+    flex-direction: row;
+
+    > img {
+      width: calc(50%);
+      margin-left: -6rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .author-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* xl: 80rem (1280px) */
+@media (width >= 80rem) {
+}
+
+/* 2xl: 96rem (1536px) */
+@media (width >= 96rem) {
+}

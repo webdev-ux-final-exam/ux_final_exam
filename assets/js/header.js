@@ -15,10 +15,16 @@ const isUserLoggedIn = () => {
 };
 
 // change header based on whether or not the user is logged in
-const updateHeader = () => {
-  const authButton = document.getElementById("auth-btn");
-  const signupButton = document.getElementById("signup-btn");
-  const logoButton = document.getElementById("logo-btn");
+const updateHeader = (mobile = true) => {
+  const authButton = document.getElementById(
+    mobile ? "auth-btn-mobile" : "auth-btn"
+  );
+  const signupButton = document.getElementById(
+    mobile ? "signup-btn-mobile" : "signup-btn"
+  );
+  const logoButton = document.getElementById(
+    mobile ? "logo-btn-mobile" : "logo-btn"
+  );
   const userEmail = sessionStorage.getItem("email");
   const authorsPage = document.querySelector('[aria-label="Authors"]');
   const booksPage = document.querySelector('[aria-label="Books"]');
@@ -47,3 +53,30 @@ const updateHeader = () => {
 };
 
 updateHeader();
+
+const toggleMobileMenu = (open) => {
+  const mobileMenu = document.querySelector("#mobile-navigation");
+  if (!open) {
+    mobileMenu.classList.toggle("open");
+  } else {
+    mobileMenu.classList[open ? "add" : "remove"]("open");
+  }
+};
+
+const openMobileMenuBtn = document.querySelector("header nav svg");
+if (openMobileMenuBtn) {
+  openMobileMenuBtn.addEventListener("click", () => {
+    toggleMobileMenu(true);
+  });
+} else {
+  console.error("No mobile menu button found!");
+}
+
+const closeMobileMenuBtn = document.querySelector("#mobile-navigation svg");
+if (closeMobileMenuBtn) {
+  closeMobileMenuBtn.addEventListener("click", () => {
+    toggleMobileMenu(false);
+  });
+} else {
+  console.error("No mobile menu button found!");
+}
