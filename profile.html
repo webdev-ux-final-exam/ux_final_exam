@@ -14,58 +14,66 @@
 <body>
   <header>
     <nav>
-      <a class="logo" id="logo-btn" href="index.html" aria-label="Home">Booklet</a>
+      <a aria-label="Home" class="logo" id="logo-btn" href="index.html">Booklet</a>
       <ul>
-        <li><a aria-label="Authors" href="all-authors.html">Authors</a></li>
+        <li><a aria-label="Authors" class="authors-page" href="all-authors.html">Authors</a></li>
         <li><a aria-label="Books" href="all-books.html">Books</a></li>
-        <li><a aria-label="Profile" href="profile.html">Profile</a></li>
-        <li><a id="auth-btn" aria-label="Log In">Log In</a></li>
-        <li><a id="signup-btn" class="btn btn-secondary" href="signup.html" aria-label="Sign Up">Create Account</a></li>
+        <li><a aria-label="Profile" href="profile.html" class="visually-hidden">Profile</a></li>
+        <li><a aria-label="Log In" id="auth-btn">Log In</a></li>
+        <li><a aria-label="Sign Up" id="signup-btn" class="btn btn-secondary" href="signup.html">Create Account</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <form method="POST" id="editProfileForm" novalidate>
-      <legend>Edit profile</legend>
-      <div class="formfieldPair">
-        <div>
-          <label for="first_name">First name:</label>
-          <input id="first_name" type="text" name="first_name" placeholder="John" pattern="[A-Za-z]{2,50}"
-            title="First name must be between 2 and 50 letters" />
+      <fieldset>
+        <legend>Edit profile</legend>
+
+        <div class="formfieldPair">
+          <div>
+            <label for="first_name">First name:</label>
+            <input id="first_name" type="text" name="first_name" placeholder="John" pattern="[A-Za-z]{2,50}"
+              title="First name must be between 2 and 50 letters" />
+          </div>
+          <div>
+            <label for="last_name">Last name:</label>
+            <input id="last_name" type="text" name="last_name" placeholder="Doe" pattern="[A-Za-z]{2,50}"
+              title="Last name must be between 2 and 50 letters" />
+          </div>
         </div>
+
         <div>
-          <label for="last_name">Last name:</label>
-          <input id="last_name" type="text" name="last_name" placeholder="Doe" pattern="[A-Za-z]{2,50}"
-            title="Last name must be between 2 and 50 letters" />
+          <label for="email">E-mail:</label>
+          <input id="email" type="email" name="email" placeholder="john@doe.com"
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Must be a valid e-mail address" required />
         </div>
-      </div>
-      <div>
-        <label for="email">E-mail:</label>
-        <input id="email" type="email" name="email" placeholder="john@doe.com"
-          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Must be a valid e-mail address" required />
-      </div>
-      <div>
-        <label for="address">Address:</label>
-        <input id="address" type="text" name="address" placeholder="123 Main Street, 1234 Anytown" pattern=".{5,}"
-          title="Address must be minimum 5 characters" required />
-      </div>
-      <div class="formfieldPair">
+
         <div>
-          <label for="phone_number">Phone number:</label>
-          <input id="phone_number" type="tel" name="phone_number" placeholder="12 34 56 78" pattern="\d{8,10}"
-            title="Phone number must be between 8 and 10 digits" required />
+          <label for="address">Address:</label>
+          <input id="address" type="text" name="address" placeholder="123 Main Street, 1234 Anytown" pattern=".{5,}"
+            title="Address must be minimum 5 characters" required />
         </div>
-        <div>
-          <label for="birth_date">Birth date:</label>
-          <input id="birth_date" type="date" name="birth_date" placeholder="Choose date" required />
+
+        <div class="formfieldPair">
+          <div>
+            <label for="phone_number">Phone number:</label>
+            <input id="phone_number" type="tel" name="phone_number" placeholder="12 34 56 78" pattern="\d{8,10}"
+              title="Phone number must be between 8 and 10 digits" required />
+          </div>
+          <div>
+            <label for="birth_date">Birth date:</label>
+            <input id="birth_date" type="date" name="birth_date" placeholder="Choose date" required />
+          </div>
         </div>
-      </div>
-      <div class="vertical-btn-grp">
-        <button class="btn btn-primary" type="submit">Save edits</button>
-        <button id="delete-btn" class="btn-delete" type="button">Delete profile</button>
-      </div>
+
+        <div class="vertical-btn-grp">
+          <button class="btn btn-primary" type="submit">Save edits</button>
+          <button id="delete-btn" class="btn-link btn-delete" type="button">Delete profile</button>
+        </div>
+      </fieldset>
     </form>
+    
     <div id="toast-container"></div>
   </main>
 

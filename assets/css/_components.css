@@ -1,6 +1,6 @@
 @import "_variables.css";
 
-section:not(.hero, .tabcontent) {
+section:not(.hero, .tabcontent, .tab) {
   padding: 2rem 1rem;
   > div {
     max-width: var(--max-screen-width);
@@ -40,9 +40,6 @@ header nav {
     a:hover {
       text-decoration: underline;
     }
-  }
-  [aria-label="Profile"] {
-    display: none;
   }
 }
 
@@ -138,7 +135,6 @@ header nav {
 }
 
 #username-display {
-  display: none;
   text-transform: capitalize;
 }
 
@@ -190,11 +186,10 @@ header nav {
   color: var(--secondary-text);
 }
 
-.btn-delete {
+.btn-link {
   border: none;
   background-color: transparent;
   font-family: var(--fontMain);
-  color: var(--error-color-dark);
   font-weight: 500;
   text-decoration: underline;
   cursor: pointer;
@@ -205,9 +200,13 @@ header nav {
   }
 }
 
-#loan-btn {
-  display: none;
+.btn-delete {
+  color: var(--error-color-dark);
 }
+
+/* #loan-btn {
+  display: none;
+} */
 
 .pagination-container {
   display: flex;

@@ -3,8 +3,8 @@ import ApiHandler from "./ApiHandler.js";
 
 // check if user is logged in
 window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem("userId")) {
-    window.location.href = "/homepage.html";
+  if (sessionStorage.getItem("userId")) {
+    window.location.href = "homepage.html";
   }
 });
 
@@ -24,16 +24,16 @@ loginForm.addEventListener("submit", async (e) => {
 
   if (loginResult.success) {
     const userEmail = data.email.trim();
-    localStorage.setItem("userId", loginResult.data.user_id);
-    localStorage.setItem("email", userEmail);
+    sessionStorage.setItem("userId", loginResult.data.user_id);
+    sessionStorage.setItem("email", userEmail);
 
     toast("Login successful", "success");
 
     setTimeout(() => {
       if (userEmail === "admin.library@mail.com") {
-        window.location.href = "/admin-homepage.html";
+        window.location.href = "admin-homepage.html";
       } else {
-        window.location.href = "/homepage.html";
+        window.location.href = "homepage.html";
       }
       updateHeader(); 
     }, 1000);

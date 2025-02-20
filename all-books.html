@@ -13,13 +13,13 @@
 <body>
   <header>
     <nav>
-      <a class="logo" id="logo-btn" href="index.html" aria-label="Home">Booklet</a>
+      <a aria-label="Home" class="logo" id="logo-btn" href="index.html">Booklet</a>
       <ul>
         <li><a aria-label="Authors" href="all-authors.html">Authors</a></li>
         <li><a aria-label="Books" href="all-books.html">Books</a></li>
-        <li><a aria-label="Profile" href="profile.html">Profile</a></li>
-        <li><a id="auth-btn" aria-label="Log In">Log In</a></li>
-        <li><a id="signup-btn" class="btn btn-secondary" href="signup.html" aria-label="Sign Up">Create Account</a></li>
+        <li><a aria-label="Profile" href="profile.html" class="visually-hidden">Profile</a></li>
+        <li><a aria-label="Log In" id="auth-btn">Log In</a></li>
+        <li><a aria-label="Sign Up" id="signup-btn" class="btn btn-secondary" href="signup.html">Create Account</a></li>
       </ul>
     </nav>
   </header>
@@ -29,26 +29,12 @@
       <div class="flex-col">
         <header class="justify-between">
           <h2>All Books</h2>
+          <label for="searchBooks" class="visually-hidden">Search books</label>
           <input class="bg-primary" type="text" name="searchBooks" id="searchBooks" placeholder="Search books"
             aria-label="Search books">
         </header>
-        <div class="book-grid" id="book-grid"></div>
+        <div class="book-grid" id="book-grid" role="region" aria-labelledby="AllBooks"></div>
       </div>
-
-      <template id="book-template">
-        <article>
-          <a class="book-details" href="">
-            <header>
-              <h3 class="book-title">Book Title Here</h3>
-              <p class="book-author">by Author Name</p>
-            </header>
-            <div class="book-meta">
-              <span class="book-year">2021</span>
-              <span class="book-company">Publishing Company</span>
-            </div>
-          </a>
-        </article>
-      </template>
     </section>
   </main>
 
@@ -71,12 +57,10 @@
 
   <template id="book-template">
     <article>
-      <a class="book-details" href="">
+      <a class="book-details" href="#">
         <header>
-          <div>
-            <h3 class="book-title">Book Title Here</h3>
-            <p class="book-author">by Author Name</p>
-          </div>
+          <h3 class="book-title">Book Title Here</h3>
+          <p class="book-author">by Author Name</p>
         </header>
         <div class="book-meta">
           <span class="book-year">2021</span>

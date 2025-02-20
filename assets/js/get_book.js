@@ -23,7 +23,7 @@ async function getAuthorByName(authorName) {
 
 async function loadBookId(bookId) {
   try {
-    const userEmail = localStorage.getItem("email");
+    const userEmail = sessionStorage.getItem("email");
     const isAdmin = userEmail === "admin.library@mail.com";
 
     const response = isAdmin
@@ -58,19 +58,26 @@ async function loadBookId(bookId) {
     const author = await getAuthorByName(book.author);
     bookContainer.querySelector(
       ".author-link"
-    ).href = `/authors.html?id=${author.author_id}`;
+    ).href = `authors.html?id=${author.author_id}`;
 
-    const isLoggedIn = localStorage.getItem("userId") !== null;
-    if (isLoggedIn) {
+    const isLoggedIn = sessionStorage.getItem("userId") !== null;
+
+    if (!isLoggedIn) {
+      const loanMessage = document.createElement("p");
+      loanMessage.textContent = "You can loan this book for 30 days with an account.";
+      document.querySelector(".book-details .flex-col").appendChild(loanMessage);
+    }
+
+    if (isLoggedIn && !isAdmin) {
       const loanBtn = document.getElementById("loan-btn");
       if (loanBtn) {
-        // CHANGED: Check if the button exists
-        loanBtn.style.display = "block";
+        loanBtn.classList.remove("hidden")
       }
     }
 
     if (isAdmin && book.loans && book.loans.length > 0) {
       const loanContainer = document.querySelector(".loan-container");
+      loanContainer.classList.remove("visually-hidden")
 
       loanContainer.querySelector(".loan-title").textContent = "Loan History:";
 
@@ -97,7 +104,7 @@ if (
   Number(bookId) < 1 ||
   !Number.isInteger(Number(bookId))
 ) {
-  window.location.href = "/homepage.html";
+  window.location.href = "homepage.html";
 }
 
 loadBookId(bookId);
