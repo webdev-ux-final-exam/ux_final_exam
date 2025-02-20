@@ -68,7 +68,6 @@ editProfileForm.addEventListener("submit", async function (e) {
       submitButton.disabled = true;
       await api.updateUser(userId, formData);
       submitButton.disabled = false;
-      unsavedChanges = false;
       toast("Updated profile successfully!", "success");
     } catch (err) {
       submitButton.disabled = false;
