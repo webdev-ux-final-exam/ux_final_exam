@@ -205,6 +205,9 @@ header nav {
   }
 }
 
+#loan-btn {
+  display: none;
+}
 
 .pagination-container {
   display: flex;

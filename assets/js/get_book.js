@@ -51,6 +51,14 @@ async function loadBookId(bookId) {
       ".author-link"
     ).href = `/authors.html?id=${author.author_id}`;
 
+    const isLoggedIn = localStorage.getItem("userId") !== null;
+    if (isLoggedIn) {
+      const loanBtn = document.getElementById("loan-btn");
+      if (loanBtn) {  // CHANGED: Check if the button exists
+        loanBtn.style.display = "block";
+      }
+    }
+    
 
     if (isAdmin && book.loans && book.loans.length > 0) {
       const loanContainer = document.querySelector(".loan-container");
