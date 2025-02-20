@@ -24,13 +24,27 @@
     </nav>
   </header>
 
+  <div class="breadcrumbs">
+    <ol vocab="https://schema.org/" typeof="BreadcrumbList">
+      <li property="itemListElement" typeof="ListItem">
+        <a property="item" typeof="WebPage" href="/homepage.html">
+          <span property="name">Homepage</span></a>
+        <meta property="position" content="1">
+      </li>
+      <li property="itemListElement" typeof="ListItem">
+        <span property="name">All Books</span>
+        <meta property="position" content="2">
+      </li>
+    </ol>
+  </div>
+
   <main>
-    <section id="AllBooks" class="bg-tertiary">
+    <section id="AllBooks">
       <div class="flex-col">
         <header class="justify-between">
-          <h2>All Books</h2>
+          <h1>All Books</h1>
           <label for="searchBooks" class="visually-hidden">Search books</label>
-          <input class="bg-primary" type="text" name="searchBooks" id="searchBooks" placeholder="Search books"
+          <input class="bg-tertiary" type="text" name="searchBooks" id="searchBooks" placeholder="Search books"
             aria-label="Search books">
         </header>
         <div class="book-grid" id="book-grid" role="region" aria-labelledby="AllBooks"></div>
@@ -57,7 +71,7 @@
 
   <template id="book-template">
     <article>
-      <a class="book-details" href="#">
+      <a class="book-details bg-tertiary" href="#">
         <header>
           <h3 class="book-title">Book Title Here</h3>
           <p class="book-author">by Author Name</p>
