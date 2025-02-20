@@ -401,7 +401,6 @@ input#searchBooks {
     background: var(--primary-bg);
     border-radius: 0.5rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -424,6 +423,12 @@ input#searchBooks {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
+
+    
+    .book-details:focus { /* Ensures keyboard navigation */
+      outline: 2px solid #005fcc; 
+      border-radius: 0.5rem;
     }
 
     .book-title {

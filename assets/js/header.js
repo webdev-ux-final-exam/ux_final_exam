@@ -29,13 +29,13 @@ const updateHeader = () => {
     authButton.textContent = "Log Out";
     authButton.ariaLabel = "Log Out"
     authButton.onclick = logout;
-    signupButton.classList.add("visually-hidden");
-    profilePage.classList.remove("visually-hidden");
+    signupButton.classList.add("hidden");
+    profilePage.classList.remove("hidden");
 
     if (userEmail === "admin.library@mail.com") {
       logoButton.href = "admin-homepage.html"
-      if (authorsPage) authorsPage.classList.add("visually-hidden");
-      if (booksPage) booksPage.classList.add("visually-hidden");
+      if (authorsPage) authorsPage.classList.add("hidden");
+      if (booksPage) booksPage.classList.add("hidden");
     } else {
       logoButton.href = "homepage.html"
     }
