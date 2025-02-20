@@ -46,6 +46,15 @@ async function loadBookId(bookId) {
     bookContainer.querySelector(".publisher").textContent =
       book.publishing_company;
 
+    const breadcrumbs = document.querySelector(".breadcrumbs");
+    if (breadcrumbs) {
+      const lastItem = breadcrumbs.lastElementChild;
+      const spinner = lastItem.querySelector(".loader");
+      if (spinner) {
+        spinner.parentElement.innerHTML = book.title;
+      }
+    }
+
     const author = await getAuthorByName(book.author);
     bookContainer.querySelector(
       ".author-link"
@@ -65,13 +74,12 @@ async function loadBookId(bookId) {
         loanBtn.classList.remove("hidden")
       }
     }
-    
 
     if (isAdmin && book.loans && book.loans.length > 0) {
       const loanContainer = document.querySelector(".loan-container");
       loanContainer.classList.remove("visually-hidden")
 
-      loanContainer.querySelector(".loan-title").textContent = "Loan History:"
+      loanContainer.querySelector(".loan-title").textContent = "Loan History:";
 
       const loanList = document.createElement("ul");
       book.loans.forEach((loan) => {
@@ -81,7 +89,6 @@ async function loadBookId(bookId) {
       });
       loanContainer.appendChild(loanList);
     }
-
   } catch (err) {
     // global error handler in ApiHandler.js would be better, probably, like a toast
     console.error("Error fetching books:", err);

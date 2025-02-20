@@ -23,18 +23,19 @@ header nav {
   align-items: center;
   height: 100%;
 
-  ul, li{
+  ul,
+  li {
     display: flex;
   }
   li {
-    align-items: center; 
+    align-items: center;
     a {
-    margin-right: 1.5rem;
-    color: var(--primary-text);
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    display: flex;
+      margin-right: 1.5rem;
+      color: var(--primary-text);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
     }
     a:hover {
       text-decoration: underline;
@@ -133,7 +134,6 @@ header nav {
   }
 }
 
-
 #username-display {
   text-transform: capitalize;
 }
@@ -169,7 +169,7 @@ header nav {
   &:hover:not(:disabled) {
     filter: brightness(1.1);
   }
-  
+
   &:disabled {
     opacity: 0.8;
     cursor: not-allowed;
@@ -238,15 +238,12 @@ header nav {
   padding: 0 1rem;
 }
 
-
 .logo {
   font-family: var(--fontHeader);
   font-weight: 900;
   font-size: 1.8rem;
   color: var(--primary-text);
 }
-
-
 
 /* Style the table */
 .admin-table {
@@ -258,7 +255,7 @@ header nav {
   text-align: center;
   margin-bottom: 0.6rem;
   thead {
-    background-color: var(--secondary-bg); 
+    background-color: var(--secondary-bg);
     color: var(--secondary-text);
   }
   th {
@@ -276,7 +273,6 @@ header nav {
   }
 }
 
-
 .admin-add-frm {
   width: 100%;
   margin-bottom: 3rem;
@@ -291,13 +287,12 @@ header nav {
   }
 }
 
-#AllBooks.tabcontent  {
+#AllBooks.tabcontent {
   border-radius: 1rem;
   margin-bottom: 3rem;
   padding: 2rem;
   background-color: var(--tertiary-bg);
 }
-
 
 .tab-container {
   display: flex;
@@ -306,7 +301,7 @@ header nav {
 }
 
 .tab {
-  width: 20%; 
+  width: 20%;
   height: 30rem;
   padding: 2rem;
   background-color: var(--secondary-bg);
@@ -334,7 +329,8 @@ header nav {
   }
 }
 
-.tab button:hover, .tab button.active {
+.tab button:hover,
+.tab button.active {
   text-decoration: underline;
 }
 
@@ -343,7 +339,6 @@ header nav {
   width: 80%;
   padding-bottom: 3rem;
 }
-
 
 footer {
   background-color: var(--secondary-bg);
@@ -455,7 +450,7 @@ input#searchBooks {
       display: flex;
       gap: 10px;
       font-size: 0.8rem;
-      color: var(--tertiary-text)
+      color: var(--tertiary-text);
     }
 
     .book-meta span {
@@ -469,5 +464,91 @@ input#searchBooks {
   gap: 3rem;
   img {
     max-width: 25rem;
+  }
+}
+
+/* https://www.w3schools.com/howto/howto_css_loader.asp */
+.loader {
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: var(--tertiary-bg);
+  border-top-color: var(--primary-btn);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 2s linear infinite;
+
+  &.large {
+    border-width: 0.5rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &.tiny {
+    border-width: 0.125rem;
+    width: 1rem;
+    height: 1rem;
+    border-color: var(--primary-bg);
+    border-top-color: var(--primary-btn);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.breadcrumbs {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  max-width: var(--max-screen-width);
+  margin: 0 auto;
+  width: 100%;
+
+  & ol {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    gap: 0.5rem;
+
+    padding: 0.75rem 1rem;
+    background-color: var(--tertiary-bg);
+    border-radius: 0.375rem;
+  }
+
+  & li {
+    display: flex;
+    align-items: center;
+    color: var(--primary-text);
+
+    &:not(:last-child)::after {
+      content: "›";
+      margin-left: 0.5rem;
+      color: var(--tertiary-text);
+    }
+  }
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &[property="item"] {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+  }
+
+  & span[property="name"] {
+    white-space: nowrap;
   }
 }
