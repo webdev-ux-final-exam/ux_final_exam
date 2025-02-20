@@ -384,7 +384,7 @@ input#searchBooks {
 
 .author-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
   padding-bottom: 1rem;
   li {
@@ -565,7 +565,7 @@ input#searchBooks {
   }
 
   .controls {
-    display: flex;
+    display: none;
     gap: 0.5rem;
     flex-direction: column;
   }

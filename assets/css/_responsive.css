@@ -9,10 +9,23 @@
       display: none;
     }
   }
+
+  .author-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* md: 48rem (768px) */
 @media (width >= 48rem) {
+  .author-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .page-header {
+    .controls {
+      display: flex;
+    }
+  }
 }
 
 /* lg: 64rem (1024px) */
@@ -33,6 +46,10 @@
       margin-left: -6rem;
       margin-bottom: 1rem;
     }
+  }
+
+  .author-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 
