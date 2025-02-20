@@ -458,8 +458,18 @@ input#searchBooks {
       color: var(--tertiary-text);
     }
 
+    .book-year {
+      flex-shrink: 0;
+    }
+
     .book-meta span {
-      white-space: nowrap;
+      line-height: .9rem;
+      line-clamp: 1;
+      display: -webkit-box; /* Enables the box layout for line clamping */
+      -webkit-box-orient: vertical; /* Specifies vertical arrangement of boxes */
+      -webkit-line-clamp: 1; /* Limits to 2 lines before truncating */
+      overflow: hidden; /* Hides overflowing text */
+      text-overflow: ellipsis; /* Displays "..." for truncated text */
     }
   }
 }
