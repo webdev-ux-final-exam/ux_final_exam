@@ -2,12 +2,12 @@ import ApiHandler from "./ApiHandler.js";
 
 const api = new ApiHandler();
 
-const isLoggedIn = localStorage.getItem("userId") !== null;
+const isLoggedIn = sessionStorage.getItem("userId") !== null;
 
 const usernameDisplay = document.getElementById("username-display");
 
 if (isLoggedIn) {
-  const userId = localStorage.getItem("userId");
+  const userId = sessionStorage.getItem("userId");
 
   api.getUser(userId)
     .then((response) => {
@@ -26,5 +26,5 @@ if (isLoggedIn) {
       console.error("Error fetching user details:", error);
     });
 } else {
-  window.location.href = "/index.html";
+  window.location.href = "index.html";
 }

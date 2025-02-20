@@ -18,9 +18,10 @@
 
 <body>
   <header>
-    <nav>
+    <nav aria-label="Main navigation">
       <a class="logo" id="logo-btn" href="admin-homepage.html" aria-label="Home">Booklet</a>
       <ul>
+        <li><a aria-label="Profile" href="profile.html" class="visually-hidden">Profile</a></li>
         <li><a id="auth-btn" aria-label="Log In">Log In</a></li>
         <li><a id="signup-btn" class="btn btn-secondary" href="signup.html" aria-label="Sign Up">Create Account</a></li>
       </ul>
@@ -29,51 +30,52 @@
 
   <main>
     <div class="tab-container">
-      <nav class="tab">
+      <section class="tab">
         <h1>Admin dashboard</h1>
-        <button class="tablinks" id="tabAddBook">Add Book</button>
-        <button class="tablinks" id="tabAddAuthor">Add Author</button>
-        <button class="tablinks" id="tabAddPublisher">Add Publisher</button>
-        <button class="tablinks" id="tabAllBooks">All Books</button>
-      </nav>
+        <nav aria-label="Admin navigation tabs">
+          <button class="tablinks" id="tabAddBook">Add Book</button>
+          <button class="tablinks" id="tabAddAuthor">Add Author</button>
+          <button class="tablinks" id="tabAddPublisher">Add Publisher</button>
+          <button class="tablinks" id="tabAllBooks">All Books</button>
+        </nav>
+      </section>
       
       <section id="AddBook" class="tabcontent">
-        <form id="add-book-frm" class="admin-add-frm">
+        <form id="add-book-frm" class="admin-add-frm" aria-labelledby="AddBook">
           <fieldset>
             <legend>Add new book</legend>
             <div>
               <label for="title">Title:</label>
-              <input name="title" type="text">
+              <input name="title" type="text" required>
             </div>
             <div>
               <label for="author_id">Author id:</label>
-              <input name="author_id" type="number" step="1">
+              <input name="author_id" type="number" step="1" required>
             </div>
             <div>
               <label for="publisher_id">Publisher id:</label>
-              <input name="publisher_id" type="number" step="1">
+              <input name="publisher_id" type="number" step="1" required>
             </div>
             <div>
               <label for="publishing_year">Publishing year:</label>
-              <input id="publishing_year" name="publishing_year" type="number" step="1">
+              <input id="publishing_year" name="publishing_year" type="number" step="1" required>
             </div>
             <button class="btn btn-primary" type="submit">Add</button>
           </fieldset>
         </form>
       </section>
 
-
       <section id="AddAuthor" class="tabcontent">
-        <form id="add-author-frm" class="admin-add-frm">
+        <form id="add-author-frm" class="admin-add-frm" aria-labelledby="AddAuthor">
           <fieldset>
             <legend>Add new author</legend>
             <div>
               <label for="first_name">First name:</label>
-              <input name="first_name" type="text">
+              <input name="first_name" type="text" required>
             </div>
             <div>
               <label for="last_name">Last name:</label>
-              <input name="last_name" type="text">
+              <input name="last_name" type="text" required>
             </div>
             <button class="btn btn-primary" type="submit">Add</button>
           </fieldset>
@@ -91,22 +93,21 @@
             <tbody>
             </tbody>
           </table>
-          <div class="paginationControls">
-            <button class="pagination-btn" id="prevPageAuthor">Prev</button>
+          <nav aria-label="Author pagination">
+            <button class="pagination-btn" id="prevPageAuthor" aria-label="Previous page">Prev</button>
             <span id="pageNumberAuthor"></span>
-            <button class="pagination-btn" id="nextPageAuthor">Next</button>
-          </div>
+            <button class="pagination-btn" id="nextPageAuthor" aria-label="Next page">Next</button>
+          </nav>
         </div>
       </section>
 
-
       <section id="AddPublisher" class="tabcontent">
-        <form id="add-publisher-frm" class="admin-add-frm">
+        <form id="add-publisher-frm" class="admin-add-frm" aria-labelledby="AddPublisher">
           <fieldset>
             <legend>Add new publisher</legend>
             <div>
               <label for="name">Name:</label>
-              <input name="name" type="text">
+              <input name="name" type="text" required>
             </div>
             <button class="btn btn-primary" type="submit">Add</button>
           </fieldset>
@@ -124,15 +125,13 @@
             <tbody>
             </tbody>
           </table>
-          <div>
-            <button class="pagination-btn" id="prevPagePublisher">Prev</button>
+          <nav aria-label="Publisher pagination">
+            <button class="pagination-btn" id="prevPagePublisher" aria-label="Previous page">Prev</button>
             <span id="pageNumberPublisher"></span>
-            <button class="pagination-btn" id="nextPagePublisher">Next</button>
-          </div>
+            <button class="pagination-btn" id="nextPagePublisher" aria-label="Next page">Next</button>
+          </nav>
         </div>
       </section>
-
-
 
       <section id="AllBooks" class="tabcontent">
         <div class="flex-col">
@@ -143,27 +142,8 @@
           </header>
           <div class="book-grid" id="book-grid"></div>
         </div>
-
-        <template id="book-template">
-          <article>
-            <a class="book-details" href="">
-              <header>
-                <h3 class="book-title">Book Title Here</h3>
-                <p class="book-author">by Author Name</p>
-              </header>
-              <div class="book-meta">
-                <span class="book-year">2021</span>
-                <span class="book-company">Publishing Company</span>
-              </div>
-            </a>
-          </article>
-        </template>
       </section>
-
-      
     </div>
-    
-    
     
     <div id="toast-container"></div>
   </main>
@@ -181,7 +161,23 @@
         <p class="footer-copyright">&copy; 2024 UX group</p>
       </div>
     </div>
-</footer>
+  </footer>
+
+<template id="book-template">
+  <article>
+    <a class="book-details" href="#">
+      <header>
+        <h3 class="book-title">Book Title Here</h3>
+        <p class="book-author">by Author Name</p>
+      </header>
+      <div class="book-meta">
+        <span class="book-year">2021</span>
+        <span class="book-company">Publishing Company</span>
+      </div>
+    </a>
+  </article>
+</template>
+
 </body>
 
 </html>

@@ -3,8 +3,8 @@ import ApiHandler from "./ApiHandler.js";
 
 // check if user is not logged in
 window.addEventListener("DOMContentLoaded", () => {
-  if (!localStorage.getItem("userId")) {
-    window.location.href = "/";
+  if (!sessionStorage.getItem("userId")) {
+    window.location.href = "index.html";
   }
 });
 
@@ -12,8 +12,12 @@ const api = new ApiHandler();
 
 const editProfileForm = document.getElementById("editProfileForm");
 
-const userId = localStorage.getItem("userId");
+const userId = sessionStorage.getItem("userId");
 api.getUser(userId).then((response) => {
+  if (!response || !response.data) {
+    console.error("Failed to fetch user data");
+    return;
+  }
   const user = response.data;
   for (const [key, value] of Object.entries(user)) {
     const input = document.getElementById(key);
@@ -21,61 +25,62 @@ api.getUser(userId).then((response) => {
       input.value = value;
     }
   }
-});
+}).catch((err) => console.error("API Error:", err));
 
-editProfileForm.addEventListener("submit", async function (e) {
-  e.preventDefault();
-  const submitButton = editProfileForm.querySelector("button[type=submit]");
+if (editProfileForm) {
+  editProfileForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const submitButton = editProfileForm.querySelector("button[type=submit]");
 
-  const fields = [
-    { id: "first_name", validator: validateName },
-    { id: "last_name", validator: validateName },
-    { id: "email", validator: validateEmail },
-    { id: "address", validator: validateAddress },
-    { id: "phone_number", validator: validatePhoneNumber },
-    { id: "birth_date", validator: validateBirthDate },
-  ];
+    const fields = [
+      { id: "first_name", validator: validateName },
+      { id: "last_name", validator: validateName },
+      { id: "email", validator: validateEmail },
+      { id: "address", validator: validateAddress },
+      { id: "phone_number", validator: validatePhoneNumber },
+      { id: "birth_date", validator: validateBirthDate },
+    ];
 
-  let isValid = true;
+    let isValid = true;
 
-  const handleValidation = (input, validator) => {
-    const errorMessage = validator(input.value.trim());
-    if (errorMessage) {
-      input.classList.add("error");
-      toast(errorMessage, "error");
-      isValid = false;
-    } else {
-      input.classList.remove("error");
+    const handleValidation = (input, validator) => {
+      const errorMessage = validator(input.value.trim());
+      if (errorMessage) {
+        input.classList.add("error");
+        toast(errorMessage, "error");
+        isValid = false;
+      } else {
+        input.classList.remove("error");
+      }
+    };
+
+    // checks if the input field is empty
+    fields.forEach((field) => {
+      const input = document.getElementById(field.id);
+      if (!input.value.trim()) {
+        input.classList.add("error");
+        isValid = false;
+      } else {
+        handleValidation(input, field.validator);
+      }
+    });
+
+    if (isValid) {
+      const formData = collectFormData(fields);
+      console.log("Data sent to API:", formData);
+
+      try {
+        submitButton.disabled = true;
+        await api.updateUser(userId, formData);
+        submitButton.disabled = false;
+        toast("Updated profile successfully!", "success");
+      } catch (err) {
+        submitButton.disabled = false;
+        console.error("Error:", err);
+      }
     }
-  };
-
-  // checks if the input field is empty
-  fields.forEach((field) => {
-    const input = document.getElementById(field.id);
-    if (!input.value.trim()) {
-      input.classList.add("error");
-      isValid = false;
-    } else {
-      handleValidation(input, field.validator);
-    }
-  });
-
-  if (isValid) {
-    const formData = collectFormData(fields);
-    console.log("Data sent to API:", formData);
-
-    try {
-      submitButton.disabled = true;
-      await api.updateUser(userId, formData);
-      submitButton.disabled = false;
-      unsavedChanges = false;
-      toast("Updated profile successfully!", "success");
-    } catch (err) {
-      submitButton.disabled = false;
-      console.error("Error:", err);
-    }
-  }
-});
+  })
+};
 
 // collect data from form
 function collectFormData(fields) {

@@ -1,6 +1,6 @@
 @import "_variables.css";
 
-section:not(.hero, .tabcontent) {
+section:not(.hero, .tabcontent, .tab) {
   padding: 2rem 1rem;
   > div {
     max-width: var(--max-screen-width);
@@ -39,9 +39,6 @@ header nav {
     a:hover {
       text-decoration: underline;
     }
-  }
-  [aria-label="Profile"] {
-    display: none;
   }
 }
 
