@@ -1,44 +1,21 @@
-import { initializePagination } from './pagination.js';
+import { initializePagination } from "./pagination.js";
 import ApiHandler from "./ApiHandler.js";
 
 const api = new ApiHandler();
 
-async function getAuthors() {
-  const authorsTableBody = document.querySelector("#authorsTable tbody"); // Get the table body
+async function getAuthors(renderFunction, paginationSelectors = null, itemsPerPage = 19) {
   try {
     const authors = await api.getAuthors(); // Fetch authors from API
 
     if (authors.success) {
-      const authorsData = authors.data;  // Get the 'data' array from the API response
+      const authorsData = authors.data;
 
-      // Clear existing table rows
-      authorsTableBody.innerHTML = "";
-
-      // Define a render function that adds rows to the table
-      const renderAuthors = (authorsPage) => {
-        authorsTableBody.innerHTML = "";
-        authorsPage.forEach((author) => {
-          const authorRow = document.createElement("tr");
-          const authorIdCell = document.createElement("td");
-          const authorNameCell = document.createElement("td");
-
-          authorIdCell.textContent = author.author_id;
-          authorNameCell.textContent = author.author_name;
-
-          authorRow.appendChild(authorIdCell);
-          authorRow.appendChild(authorNameCell);
-
-          authorsTableBody.appendChild(authorRow);
-        });
-      };
-
-      const authorsPaginationSelectors = {
-        pageNumber: "#pageNumberAuthor",
-        prevPage: "#prevPageAuthor",
-        nextPage: "#nextPageAuthor"
-      };
-      // Initialize pagination and pass the rendering callback
-      initializePagination(authorsData, 19, renderAuthors, authorsPaginationSelectors); // 10 items per page
+      // If pagination is needed, apply it
+      if (paginationSelectors) {
+        initializePagination(authorsData, itemsPerPage, renderFunction, paginationSelectors);
+      } else {
+        renderFunction(authorsData);
+      }
     } else {
       console.error(`Failed to fetch authors. Status code: ${authors.statusCode}`);
     }
@@ -46,4 +23,5 @@ async function getAuthors() {
     console.error("An error occurred while fetching authors:", error);
   }
 }
-getAuthors();
+
+export { getAuthors };

@@ -31,7 +31,7 @@ loginForm.addEventListener("submit", async (e) => {
 
     setTimeout(() => {
       if (userEmail === "admin.library@mail.com") {
-        window.location.href = "/admin_homepage.html";
+        window.location.href = "/admin-homepage.html";
       } else {
         window.location.href = "/homepage.html";
       }

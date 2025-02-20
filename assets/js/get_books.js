@@ -73,7 +73,12 @@ document
       }
 
       books.forEach((book) => {
-        addBook(book.title, book.author, book.year, book.publisher);
+        addBook(
+          book.book_id,
+          book.title,
+          book.author,
+          book.publishing_year,
+          book.publishing_company);
       });
     } catch (err) {
       console.error("Error fetching books:", err);

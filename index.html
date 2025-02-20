@@ -7,7 +7,6 @@
   <title>Booklet</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/header.js" type="module"></script>
-  <script src="assets/js/get_books.js" type="module"></script>
 </head>
 
 <body>
@@ -15,7 +14,9 @@
     <nav>
       <a class="logo" id="logo-btn" href="index.html" aria-label="Home">Booklet</a>
       <ul>
-        <li><a href="about.html" aria-label="About">About</a></li>
+        <li><a aria-label="Authors" href="all-authors.html">Authors</a></li>
+        <li><a aria-label="Books" href="all-books.html">Books</a></li>
+        <li><a aria-label="Profile" href="profile.html">Profile</a></li>
         <li><a id="auth-btn" aria-label="Log In">Log In</a></li>
         <li><a id="signup-btn" class="btn-secondary" href="signup.html" aria-label="Sign Up">Create Account</a></li>
       </ul>
@@ -31,34 +32,6 @@
           Discover a world of e-books at your fingertips. Sign up or log in to access exclusive features like loaning
           books and managing your account.
         </p>
-      </div>
-    </section>
-
-    <section class="bg-tertiary">
-      <div class="flex-col">
-        <header class="justify-between">
-          <h2>Books available</h2>
-
-          <input class="bg-primary" type="text" name="searchBooks" id="searchBooks" placeholder="Search books"
-            aria-label="Search books">
-        </header>
-
-        <div class="book-grid" id="book-grid">
-          <article>
-            <div class="book-details">
-              <header>
-                <div>
-                  <h3 class="book-title">Book Title Here</h3>
-                  <p class="book-author">by Author Name</p>
-                </div>
-              </header>
-              <div class="book-meta">
-                <span class="book-year">2021</span>
-                <span class="book-company">Publishing Company</span>
-              </div>
-            </div>
-          </article>
-        </div>
       </div>
     </section>
   </main>
@@ -80,20 +53,6 @@
 
   <div id="toast-container"></div>
 
-  <template id="book-template">
-    <article>
-      <a class="book-details" href="">
-        <header>
-          <h3 class="book-title">Book Title Here</h3>
-          <p class="book-author">by Author Name</p>
-        </header>
-        <div class="book-meta">
-          <span class="book-year">2021</span>
-          <span class="book-company">Publishing Company</span>
-        </div>
-      </a>
-    </article>
-  </template>
 </body>
 
 </html>

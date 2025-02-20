@@ -49,7 +49,7 @@ async function loadBookId(bookId) {
     const author = await getAuthorByName(book.author);
     bookContainer.querySelector(
       ".author-link"
-    ).href = `/authors.html?id=${book.author_id}`;
+    ).href = `/authors.html?id=${author.author_id}`;
 
 
     if (isAdmin && book.loans && book.loans.length > 0) {
