@@ -9,7 +9,7 @@ const renderAuthorsAsList = (authors) => {
 
     // Create a link for each author's name
     const authorLink = document.createElement("a");
-    authorLink.href = `/authors.html?id=${author.author_id}`;  // Link to an author details page
+    authorLink.href = `authors.html?id=${author.author_id}`;  // Link to an author details page
     authorLink.textContent = author.author_name;
 
     // Append the link to the list item

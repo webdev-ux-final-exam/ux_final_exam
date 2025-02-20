@@ -3,8 +3,8 @@ import ApiHandler from "./ApiHandler.js";
 
 // check if user is logged in
 window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem("userId")) {
-    window.location.href = "/homepage.html";
+  if (sessionStorage.getItem("userId")) {
+    window.location.href = "homepage.html";
   }
 });
 
@@ -76,7 +76,7 @@ signupForm.addEventListener("submit", async function (e) {
       toast("Sign up completed successfully!", "success");
       signupForm.reset();
       setTimeout(() => {
-        window.location.href = "/login.html";
+        window.location.href = "login.html";
       }, 2000);
     } catch (err) {
       console.error("Error:", err);

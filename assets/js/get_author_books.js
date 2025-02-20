@@ -12,7 +12,7 @@ const addBook = (bookId, title, author, year, company) => {
   clone.querySelector(".book-author").textContent = `by ${author}`;
   clone.querySelector(".book-year").textContent = year || "Unknown year";
   clone.querySelector(".book-company").textContent = company;
-  clone.querySelector(".book-details").href = `/books.html?id=${bookId}`;
+  clone.querySelector(".book-details").href = `books.html?id=${bookId}`;
 
   bookList.appendChild(clone);
 };
@@ -52,7 +52,7 @@ if (
   Number(authorId) < 1 ||
   !Number.isInteger(Number(authorId))
 ) {
-  window.location.href = "/homepage.html";
+  window.location.href = "homepage.html";
 }
 
 async function fetchAuthorDetails(authorId) {
@@ -69,7 +69,7 @@ async function fetchAuthorDetails(authorId) {
     );
 
     if (!author) {
-      window.location.href = "/homepage.html";
+      window.location.href = "homepage.html";
       return;
     }
 

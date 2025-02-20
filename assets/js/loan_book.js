@@ -2,7 +2,7 @@ import ApiHandler from './ApiHandler.js';
 import { toast } from "./toast.js";
 
 const api = new ApiHandler();
-const userId = localStorage.getItem('userId');
+const userId = sessionStorage.getItem('userId');
 const url = new URL(window.location.href);
 const bookId = url.searchParams.get("id");
 

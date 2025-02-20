@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteButton = document.getElementById("delete-btn");
 
   deleteButton.addEventListener("click", async () => {
-    const userId = localStorage.getItem("userId");
+    const userId = sessionStorage.getItem("userId");
 
     if (!userId) {
-      console.error("User ID not found in localStorage");
+      console.error("User ID not found in sessionStorage");
       return;
     }
 

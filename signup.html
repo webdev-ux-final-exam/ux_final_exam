@@ -13,90 +13,65 @@
   <body>
     <header>
       <nav>
-        <a class="logo" id="logo-btn" href="index.html" aria-label="Home">Booklet</a>
+        <a aria-label="Home" class="logo" id="logo-btn" href="index.html">Booklet</a>
         <ul>
           <li><a aria-label="Authors" href="all-authors.html">Authors</a></li>
           <li><a aria-label="Books" href="all-books.html">Books</a></li>
-          <li><a id="auth-btn" aria-label="Log In">Log In</a></li>
-          <li><a id="signup-btn" class="btn btn-secondary" href="signup.html" aria-label="Sign Up">Create Account</a></li>
+          <li><a aria-label="Log In" id="auth-btn">Log In</a></li>
+          <li><a aria-label="Sign Up" id="signup-btn" class="btn btn-secondary" href="signup.html">Create Account</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
       <form method="POST" id="signupForm" novalidate>
-        <legend>Sign up</legend>
-        <div class="formfieldPair">
-          <div>
-            <label for="first_name">First name:</label>
-            <input
-              id="first_name"
-              type="text"
-              name="first_name"
-              placeholder="John"
-            />
+        <fieldset>
+          <legend>Sign up</legend>
+
+          <div class="formfieldPair">
+            <div>
+              <label for="first_name">First name:</label>
+              <input id="first_name" type="text" name="first_name" placeholder="John" required/>
+            </div>
+            <div>
+              <label for="last_name">Last name:</label>
+              <input id="last_name" type="text" name="last_name" placeholder="Doe" required/>
+            </div>
           </div>
+
           <div>
-            <label for="last_name">Last name:</label>
-            <input
-              id="last_name"
-              type="text"
-              name="last_name"
-              placeholder="Doe"
-            />
+            <label for="email">E-mail:</label>
+            <input id="email" type="email" name="email" placeholder="john@doe.com" required/>
           </div>
-        </div>
-        <div>
-          <label for="email">E-mail:</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="john@doe.com"
-          />
-        </div>
-        <div>
-          <label for="address">Address:</label>
-          <input
-            id="address"
-            type="text"
-            name="address"
-            placeholder="123 Main Street, 1234 Anytown"
-          />
-        </div>
-        <div class="formfieldPair">
+
           <div>
-            <label for="phone_number">Phone number:</label>
-            <input
-              id="phone_number"
-              type="tel"
-              name="phone_number"
-              placeholder="12 34 56 78"
-            />
+            <label for="address">Address:</label>
+            <input id="address" type="text" name="address" placeholder="123 Main Street, 1234 Anytown" required/>
           </div>
+
+          <div class="formfieldPair">
+            <div>
+              <label for="phone_number">Phone number:</label>
+              <input id="phone_number" type="tel" name="phone_number" placeholder="12 34 56 78" required/>
+            </div>
+            <div>
+              <label for="birth_date">Birth date:</label>
+              <input id="birth_date" type="date" name="birth_date" placeholder="Choose date" required/>
+            </div>
+          </div>
+
           <div>
-            <label for="birth_date">Birth date:</label>
-            <input
-              id="birth_date"
-              type="date"
-              name="birth_date"
-              placeholder="Choose date"
-            />
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="password" required/>
           </div>
-        </div>
-        <div>
-          <label for="password">Password:</label>
-          <input id="password" type="password" name="password" />
-        </div>
-        <div>
-          <label for="confirm_password">Confirm Password:</label>
-          <input
-            id="confirm_password"
-            type="password"
-            name="confirm_password"
-          />
-        </div>
-        <button class="btn btn-primary" type="submit">Sign up</button>
+
+          <div>
+            <label for="confirm_password">Confirm Password:</label>
+            <input id="confirm_password" type="password" name="confirm_password" required/>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Sign up</button>
+        </fieldset>
       </form>
       <div id="toast-container"></div>
     </main>
@@ -114,6 +89,6 @@
           <p class="footer-copyright">&copy; 2024 UX group</p>
         </div>
       </div>
-  </footer>
+    </footer>
   </body>
 </html>
