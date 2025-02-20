@@ -23,7 +23,10 @@ header nav {
   align-items: center;
   height: 100%;
 
-  ul,
+  ul {
+    display: none;
+  }
+
   li {
     display: flex;
   }
@@ -44,30 +47,30 @@ header nav {
 }
 
 .hero {
-  height: calc(100vh - 60px); /* Fallback for browsers that don't support dvh */
-  height: calc(100dvh - 60px);
+  min-height: calc(
+    100vh - 60px
+  ); /* Fallback for browsers that don't support dvh */
+  min-height: calc(100dvh - 60px);
   max-width: var(--max-screen-width);
 
   margin: 0 auto;
 
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
-  gap: 6rem;
+  gap: 3rem;
 
   > img {
-    height: 80%;
+    width: calc(100% + 6rem);
     margin-left: -6rem;
+    margin-bottom: 1rem;
   }
 
   > div {
-    h1 {
-      white-space: nowrap;
-    }
-
+    padding: 0 1rem;
     max-width: var(--max-width-content);
     flex-grow: 1;
-    width: min-content;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -344,7 +347,7 @@ footer {
   background-color: var(--secondary-bg);
   color: var(--secondary-text);
   padding-bottom: 2rem;
-  padding: 4rem 0 2rem 0;
+  padding: 4rem 1rem 2rem 1rem;
   a,
   .logo {
     color: var(--secondary-text);

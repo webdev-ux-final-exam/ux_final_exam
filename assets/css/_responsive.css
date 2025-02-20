@@ -1,5 +1,14 @@
 /* sm: 40rem (640px) */
 @media (width >= 40rem) {
+  header nav {
+    ul {
+      display: flex;
+    }
+
+    svg {
+      display: none;
+    }
+  }
 }
 
 /* md: 48rem (768px) */
@@ -8,6 +17,23 @@
 
 /* lg: 64rem (1024px) */
 @media (width >= 64rem) {
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .hero {
+    flex-direction: row;
+
+    > img {
+      width: calc(50%);
+      margin-left: -6rem;
+      margin-bottom: 1rem;
+    }
+  }
 }
 
 /* xl: 80rem (1280px) */
