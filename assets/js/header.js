@@ -38,7 +38,7 @@ const updateHeader = (mobile = true) => {
     profilePage.classList.remove("hidden");
 
     if (userEmail === "admin.library@mail.com") {
-      logoButton.href = "admin-homepage.html"
+      logoButton.href = "admin-homepage.html";
       if (authorsPage) authorsPage.classList.add("hidden");
       if (booksPage) booksPage.classList.add("hidden");
     } else {
@@ -52,7 +52,8 @@ const updateHeader = (mobile = true) => {
   }
 };
 
-updateHeader();
+updateHeader(false);
+updateHeader(true);
 
 const toggleMobileMenu = (open) => {
   const mobileMenu = document.querySelector("#mobile-navigation");
