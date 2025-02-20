@@ -74,6 +74,15 @@ async function fetchAuthorDetails(authorId) {
     }
 
     document.querySelector(".author-name").textContent = author.author_name;
+
+    const breadcrumbs = document.querySelector(".breadcrumbs");
+    if (breadcrumbs) {
+      const lastItem = breadcrumbs.lastElementChild;
+      const spinner = lastItem.querySelector(".loader");
+      if (spinner) {
+        spinner.parentElement.innerHTML = author.author_name;
+      }
+    }
   } catch (err) {
     // global error handler in ApiHandler.js would be better, probably, like a toast
     console.error("Error fetching author details:", err);

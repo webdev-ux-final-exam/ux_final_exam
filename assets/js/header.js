@@ -4,8 +4,8 @@ export const logout = () => {
   sessionStorage.removeItem("email");
 
   setTimeout(() => {
-    window.location.href = "index.html"; 
-    updateAuthButton(); 
+    window.location.href = "index.html";
+    updateAuthButton();
   }, 1000);
 };
 
@@ -14,20 +14,19 @@ const isUserLoggedIn = () => {
   return sessionStorage.getItem("userId") !== null;
 };
 
-// change header based on whether or not the user is logged in 
+// change header based on whether or not the user is logged in
 const updateHeader = () => {
   const authButton = document.getElementById("auth-btn");
-  const signupButton = document.getElementById("signup-btn")
-  const logoButton = document.getElementById("logo-btn")
-  const userEmail  = sessionStorage.getItem("email")
-  const authorsPage = document.querySelector('[aria-label="Authors"]')
-  const booksPage = document.querySelector('[aria-label="Books"]')
-  const profilePage = document.querySelector('[aria-label="Profile"]')
-
+  const signupButton = document.getElementById("signup-btn");
+  const logoButton = document.getElementById("logo-btn");
+  const userEmail = sessionStorage.getItem("email");
+  const authorsPage = document.querySelector('[aria-label="Authors"]');
+  const booksPage = document.querySelector('[aria-label="Books"]');
+  const profilePage = document.querySelector('[aria-label="Profile"]');
 
   if (isUserLoggedIn()) {
     authButton.textContent = "Log Out";
-    authButton.ariaLabel = "Log Out"
+    authButton.ariaLabel = "Log Out";
     authButton.onclick = logout;
     signupButton.classList.add("hidden");
     profilePage.classList.remove("hidden");
@@ -37,14 +36,13 @@ const updateHeader = () => {
       if (authorsPage) authorsPage.classList.add("hidden");
       if (booksPage) booksPage.classList.add("hidden");
     } else {
-      logoButton.href = "homepage.html"
+      logoButton.href = "homepage.html";
     }
-
   } else {
     authButton.textContent = "Log In";
-    authButton.ariaLabel = "Log In"
-    authButton.href = "login.html"; 
-    logoButton.href = "index.html"
+    authButton.ariaLabel = "Log In";
+    authButton.href = "login.html";
+    logoButton.href = "index.html";
   }
 };
 
