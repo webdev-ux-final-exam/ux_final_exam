@@ -25,6 +25,27 @@
     </nav>
   </header>
 
+  <div class="breadcrumbs">
+    <ol vocab="https://schema.org/" typeof="BreadcrumbList">
+      <li property="itemListElement" typeof="ListItem">
+        <a property="item" typeof="WebPage" href="/homepage.html">
+          <span property="name">Homepage</span></a>
+        <meta property="position" content="1">
+      </li>
+      <li property="itemListElement" typeof="ListItem">
+        <a property="item" typeof="WebPage" href="/all-books.html">
+          <span property="name">All Books</span></a>
+        <meta property="position" content="2">
+      </li>
+      <li property="itemListElement" typeof="ListItem">
+        <span property="name">
+          <div class="loader tiny"></div>
+        </span>
+        <meta property="position" content="3">
+      </li>
+    </ol>
+  </div>
+
   <main>
     <section>
       <div class="book-details">
@@ -39,7 +60,8 @@
           <p>Published in <span class="year">...</span> by <span class="publisher">...</span>.</p>
 
           <p>You can loan this book for 30 days with an account.</p>
-          <button id="loan-btn" class="btn btn-primary">Loan Book</button>
+
+          <button type="button" id="loan-btn" class="btn btn-primary">Loan Book</button>
           <div class="loan-container">
             <h2 class="loan-title"></h2>
           </div>
