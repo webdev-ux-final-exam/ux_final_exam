@@ -13,37 +13,44 @@
 <body>
   <header>
     <nav>
-      <a class="logo" id="logo-btn" href="index.html" aria-label="Home">Booklet</a>
+      <a aria-label="Home" class="logo" id="logo-btn" href="index.html">Booklet</a>
       <ul>
         <li><a aria-label="Authors" href="all-authors.html">Authors</a></li>
         <li><a aria-label="Books" href="all-books.html">Books</a></li>
-        <li><a id="auth-btn" aria-label="Log In">Log In</a></li>
-        <li><a id="signup-btn" class="btn btn-secondary" href="signup.html" aria-label="Sign Up">Create Account</a></li>
+        <li><a aria-label="Log In" id="auth-btn">Log In</a></li>
+        <li><a aria-label="Sign Up" id="signup-btn" class="btn btn-secondary" href="signup.html">Create Account</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <form method="POST" id="loginForm">
-      <legend>Log In</legend>
+    <section>
+      <form method="POST" id="loginForm">
+        <fieldset>
+          <legend>Log In</legend>
+          <div>
+            <label for="email">E-mail:</label>
+            <input id="email" type="email" name="email" placeholder="john@doe.com"
+              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Must be a valid e-mail address" required />
+          </div>
+
+          <div>
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="password"
+              pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&*\-]).{8,}$"
+              title="Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long."
+              placeholder="Insert password .." required />
+          </div>
+
+          <button class="btn btn-primary" type="submit">Log In</button>
+      </fieldset>
+      </form>
+
       <div>
-        <label for="email">E-mail:</label>
-        <input id="email" type="email" name="email" placeholder="john@doe.com"
-          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Must be a valid e-mail address" required />
+        <p class="text-center">Don't have an account yet? <a href="signup.html" class="btn-link">Sign up here</a></p>
       </div>
-      <div>
-        <label for="password">Password:</label>
-        <input id="password" type="password" name="password"
-          pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&*\-]).{8,}$"
-          title="Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long."
-          placeholder="Insert password .." required />
-      </div>
-      <button class="btn btn-primary" type="submit">Log In</button>
-      <hr>
-      <div>
-        <p>Don't have an account yet? <a href="signup.html">Sign up here</a></p>
-      </div>
-    </form>
+    </section>
+
     <div id="toast-container"></div>
   </main>
 
@@ -60,7 +67,7 @@
         <p class="footer-copyright">&copy; 2024 UX group</p>
       </div>
     </div>
-</footer>
+  </footer>
 </body>
 
 </html>

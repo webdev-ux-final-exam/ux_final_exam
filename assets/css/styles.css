@@ -96,6 +96,10 @@ input.error {
   background-color: var(--primary-bg);
 }
 
+.text-center {
+  text-align: center;
+}
+
 .flex-col {
   display: flex;
   flex-direction: column;

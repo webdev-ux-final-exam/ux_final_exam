@@ -187,11 +187,10 @@ header nav {
   color: var(--secondary-text);
 }
 
-.btn-delete {
+.btn-link {
   border: none;
   background-color: transparent;
   font-family: var(--fontMain);
-  color: var(--error-color-dark);
   font-weight: 500;
   text-decoration: underline;
   cursor: pointer;
@@ -200,6 +199,10 @@ header nav {
   &:hover {
     font-weight: 600;
   }
+}
+
+.btn-delete {
+  color: var(--error-color-dark);
 }
 
 #loan-btn {
