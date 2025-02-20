@@ -46,6 +46,10 @@ export default class ApiHandler {
     return await this.request("/books", "GET", { n: number });
   }
 
+  async getAllBooks() {
+    return await this.request("/books", "GET", { n: -1 });
+  }
+
   async searchBooksByTitle(searchText) {
     return await this.request("/books", "GET", { s: searchText });
   }
@@ -60,6 +64,40 @@ export default class ApiHandler {
 
   async getAuthors() {
     return await this.request("/authors", "GET");
+  }
+
+  async getAuthorsRich() {
+    const authors = await this.getAuthors();
+    if (!authors.success) {
+      return {
+        success: false,
+        statusCode: authors.statusCode,
+      };
+    }
+
+    const books = await this.getAllBooks();
+    if (!books.success) {
+      return {
+        success: false,
+        statusCode: books.statusCode,
+      };
+    }
+
+    const enrichedAuthors = authors.data.map((author) => {
+      const authorBooks = books.data.filter(
+        (book) => book.author === author.author_name
+      );
+
+      return {
+        ...author,
+        books: authorBooks,
+      };
+    });
+
+    return {
+      success: true,
+      data: enrichedAuthors,
+    };
   }
 
   async getPublishers() {

@@ -26,7 +26,30 @@
 
   <main>
     <section>
-      <h1>All Authors</h1>
+      <header class="page-header">
+        <h1>All Authors</h1>
+        <div class="controls">
+          <div>
+            <label for="sort-by">Sort by:</label>
+            <select id="sort-by" disabled>
+              <option value="default">Default</option>
+              <option value="name-asc">Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+              <option value="book-count-asc">Book Count (Low to High)</option>
+              <option value="book-count-desc">Book Count (High to Low)</option>
+              <option value="latest-book-asc">Latest Book Published (Oldest to Newest)</option>
+              <option value="latest-book-desc">Latest Book Published (Newest to Oldest)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="filter-by-publisher">Filter by Publisher:</label>
+            <select id="filter-by-publisher" disabled>
+              <option value="">All Publishers</option>
+            </select>
+          </div>
+        </div>
+      </header>
       <div class="pagination-container">
         <div class="author-grid" id="authors-list"></div>
         <div class="paginationControls">
@@ -55,18 +78,16 @@
 
   <div id="toast-container"></div>
 
-  <template id="book-template">
+  <template id="author-template">
     <article>
-      <a class="book-details" href="">
+      <a class="author-details" href="">
         <header>
-          <div>
-            <h3 class="book-title">Book Title Here</h3>
-            <p class="book-author">by Author Name</p>
-          </div>
+          <h2 class="author-name">Author Name</h2>
         </header>
         <div class="book-meta">
-          <span class="book-year">2021</span>
-          <span class="book-company">Publishing Company</span>
+          <strong>Available books:</strong> <span class="book-count">
+            <div class="loader tiny"></div>
+          </span>
         </div>
       </a>
     </article>
