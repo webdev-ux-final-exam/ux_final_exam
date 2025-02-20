@@ -77,7 +77,7 @@ async function loadBookId(bookId) {
 
     if (isAdmin && book.loans && book.loans.length > 0) {
       const loanContainer = document.querySelector(".loan-container");
-      loanContainer.classList.remove("visually-hidden")
+      loanContainer.classList.remove("hidden")
 
       loanContainer.querySelector(".loan-title").textContent = "Loan History:";
 

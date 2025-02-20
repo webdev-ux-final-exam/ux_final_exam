@@ -401,7 +401,6 @@ input#searchBooks {
     background: var(--primary-bg);
     border-radius: 0.5rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -424,6 +423,12 @@ input#searchBooks {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
+
+    
+    .book-details:focus { /* Ensures keyboard navigation */
+      outline: 2px solid #005fcc; 
+      border-radius: 0.5rem;
     }
 
     .book-title {
@@ -453,8 +458,18 @@ input#searchBooks {
       color: var(--tertiary-text);
     }
 
+    .book-year {
+      flex-shrink: 0;
+    }
+
     .book-meta span {
-      white-space: nowrap;
+      line-height: .9rem;
+      line-clamp: 1;
+      display: -webkit-box; /* Enables the box layout for line clamping */
+      -webkit-box-orient: vertical; /* Specifies vertical arrangement of boxes */
+      -webkit-line-clamp: 1; /* Limits to 2 lines before truncating */
+      overflow: hidden; /* Hides overflowing text */
+      text-overflow: ellipsis; /* Displays "..." for truncated text */
     }
   }
 }
