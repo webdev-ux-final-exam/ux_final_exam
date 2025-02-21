@@ -29,6 +29,7 @@ const updateHeader = (mobile = true) => {
   const authorsPage = document.querySelector('[aria-label="Authors"]');
   const booksPage = document.querySelector('[aria-label="Books"]');
   const profilePage = document.querySelector('[aria-label="Profile"]');
+  const breadcrumbs = document.querySelector('.breadcrumbs')
 
   if (isUserLoggedIn()) {
     authButton.textContent = "Log Out";
@@ -41,6 +42,7 @@ const updateHeader = (mobile = true) => {
       logoButton.href = "admin-homepage.html";
       if (authorsPage) authorsPage.classList.add("hidden");
       if (booksPage) booksPage.classList.add("hidden");
+      if (breadcrumbs) breadcrumbs.classList.add("hidden")
     } else {
       logoButton.href = "homepage.html";
     }
